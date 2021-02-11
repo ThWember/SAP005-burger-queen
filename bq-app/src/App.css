@@ -1,3 +1,32 @@
 .App {
   text-align: center;
 }
+
+.login-area {
+  border: solid 0.5px lightgray;
+  padding: 3px;
+}
+
+.main {
+  display: flex;
+  margin-top: 30px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.each-item {
+  margin: 10px;
+}
+
+.img-menu {
+  width: 200px;
+  height: 200px;
+}
+
+.choose-itens {
+  border: solid 1px lightgray;
+}
