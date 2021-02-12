@@ -28,15 +28,28 @@ const [menu, setMenu] = useState([]);
   const list = []
   for(let i of menu){
     list.push(
-      <div className="each-item" key={i.id}>
+      <div className="each-item" name={i.name} price={i.price} key={i.id}>
+       <img className="img-menu" src={i.image}/>
        <p>{i.name}</p>
        <p>R${i.price}</p>
-       <p>{i.flavor}</p>
+       <p>{i.flavor}</p>   
        <p>{i.complement}</p>
-       <img className="img-menu" src={i.image}/>
      </div>
     )
   }
+
+  // const chooseList = []
+
+  // const allItens = document.querySelectorAll('.each-item')
+  // allItens.forEach((item) => {
+  //   item.addEventListener('click', (e) => {
+  //     let value = e.target.parentNode.attributes.getNamedItem('price').value;
+  //     let name = e.target.parentNode.attributes.getNamedItem('name').value;
+  //     console.log(name, value)
+  //     chooseList
+  //   })
+  // })
+
    return (
     <div className="App">
        
@@ -44,8 +57,6 @@ const [menu, setMenu] = useState([]);
           <div className="menu">{list}</div>  
           <div className="sum-area">
             <div className="choose-itens">
-              <p></p>
-              <p></p>
             </div>
 
             <p></p>
