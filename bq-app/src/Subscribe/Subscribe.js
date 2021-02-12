@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Header from '../Components/Header';
 
-function Subscribe() {
+  function Subscribe() {
     const [newEmail, setNewEmail] = useState('');
     const [newPassword, setNewPassord] = useState('');
     const [role, setRole] = useState('');
@@ -8,12 +9,12 @@ function Subscribe() {
     const [name, setName] = useState('');
    
    
-   const subscribe = (newEmail, newPassword, role, restaurant, name) => {
+  const subscribe = (newEmail, newPassword, role, restaurant, name) => {
    
-     var myHeaders = new Headers();
+   let myHeaders = new Headers();
    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
    
-   var urlencoded = new URLSearchParams();
+   let urlencoded = new URLSearchParams();
    urlencoded.append("email", `${newEmail}`);
    urlencoded.append("password", `${newPassword}`);
    urlencoded.append("role", `${role}`);
@@ -41,20 +42,23 @@ function Subscribe() {
    
    return (
     <div className="subscribe-area">
-             <form>
-               <label>email</label>
-               <input type="text" value={newEmail} onChange={(event) => setNewEmail(event.target.value)}/>
-               <label>password</label>
-               <input type="password" autoComplete="off" value={newPassword} onChange={(event) => setNewPassord(event.target.value)}/>
-               <label>Área</label>
-               <input type="text" placeholder="Cozinha ou Salão" value={role} onChange={(event) => setRole(event.target.value)}/>
-               <label>Restaurante</label>
-               <input type="text"  value={restaurant} onChange={(event) => setRestaurant(event.target.value)}/> 
-               <label>Nome</label>
-               <input type="text" value={name} onChange={(event) => setName(event.target.value)}/>          
-               <button type="submit" onClick={(event) => handleNewSubmit(event)}>Enviar</button>
-             </form>
-           </div>
+      <Header />
+        <div className="register-box">
+          <form>
+            <label>email</label>
+            <input type="text" value={newEmail} onChange={(event) => setNewEmail(event.target.value)}/>
+            <label>password</label>
+            <input type="password" autoComplete="off" value={newPassword} onChange={(event) => setNewPassord(event.target.value)}/>
+            <label>Área</label>
+            <input type="text" placeholder="Cozinha ou Salão" value={role} onChange={(event) => setRole(event.target.value)}/>
+            <label>Restaurante</label>
+            <input type="text"  value={restaurant} onChange={(event) => setRestaurant(event.target.value)}/> 
+            <label>Nome</label>
+            <input type="text" value={name} onChange={(event) => setName(event.target.value)}/>          
+            <button type="submit" onClick={(event) => handleNewSubmit(event)}>Enviar</button>
+          </form>
+        </div>
+    </div>
 )}
 
 export default Subscribe;
