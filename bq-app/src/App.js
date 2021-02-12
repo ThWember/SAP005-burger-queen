@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import Header from './Components/Header';
  
 
 function App() {
@@ -52,7 +53,7 @@ const [menu, setMenu] = useState([]);
 
    return (
     <div className="App">
-       
+      <Header />
         <div className="main">
           <div className="menu">{list}</div>  
           <div className="sum-area">
