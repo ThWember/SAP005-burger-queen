@@ -1,9 +1,9 @@
-import './App.css';
+import './Home.css';
 import React, { useState, useEffect } from 'react';
-import Header from './Components/Header';
+import Header from '../Components/Header';
  
 
-function App() {
+function Home() {
  
 const [menu, setMenu] = useState([]);
 
@@ -70,5 +70,5 @@ const [menu, setMenu] = useState([]);
   );
 }
 
-export default App;
+export default Home;
 
