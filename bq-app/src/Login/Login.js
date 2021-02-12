@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
+import Header from '../Components/Header'
+import './Login.css'
 
 function Login() {
 
@@ -36,14 +37,17 @@ function Login() {
     }
    return (
     <div className="login-area"> 
-             <form>
-               <label>email</label>
-               <input type="text" value={email} onChange={(event) => setEmail(event.target.value)}/>
-               <label>password</label>
-               <input type="password" autoComplete="off" value={password} onChange={(event) => setPassord(event.target.value)}/>
-               <button type="submit" onClick={(event) => handleSubmit(event)}>Entrar</button>
-             </form>
-           </div>
+      <Header />
+      <div className="input-box">
+          <form>
+            <label>email</label>
+            <input type="text" value={email} onChange={(event) => setEmail(event.target.value)}/> 
+            <label>password</label>
+            <input type="password" autoComplete="off" value={password} onChange={(event) => setPassord(event.target.value)}/>
+            <button type="submit" onClick={(event) => handleSubmit(event)}>Entrar</button>
+          </form>
+       </div>
+    </div>
 )}
 
 export default Login;
