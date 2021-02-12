@@ -4,24 +4,23 @@ import './Login.css'
 
 function Login() {
 
-
-    const [email, setEmail] = useState('');
-    const [password, setPassord] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassord] = useState('');
    
-   const login = (email, password) => {
-    var myHeaders = new Headers();
+  const login = (email, password) => {
+    let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
    
-    var urlencoded = new URLSearchParams();
+    let urlencoded = new URLSearchParams();
     urlencoded.append("email",  `${email}`);
     urlencoded.append("password", `${password}`);
    
-    var requestOptions = {
+    let requestOptions = {
        method: 'POST',
        headers: myHeaders,
        body: urlencoded,
        redirect: 'follow'
-    };
+  };
    
    fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
      .then(response => response.text())
@@ -31,10 +30,11 @@ function Login() {
    
    
    
-   const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
       event.preventDefault();
       login(email, password)
     }
+
    return (
     <div className="login-area"> 
       <Header />
