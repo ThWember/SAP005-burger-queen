@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './subscribe.css';
 import Header from '../Components/Header';
+import burguer from '../img/burguer.jpg';
 
   function Subscribe() {
     const [newEmail, setNewEmail] = useState('');
@@ -44,6 +45,7 @@ import Header from '../Components/Header';
    return (
     <div className="subscribe-area">
       <Header />
+       <img className="img-burguer" src={burguer}/>
         <div className="register-box">
           <form>
             <label>email</label>
