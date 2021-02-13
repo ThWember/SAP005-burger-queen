@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './subscribe.css';
 import Header from '../Components/Header';
 
   function Subscribe() {

@@ -1,4 +1,13 @@
+* {
+  margin: 0;
+}
+#root {
+  display: flex;
+}
+
 .App {
+  display: flex;
+  flex-wrap: wrap;
   text-align: center;
 }
 
@@ -17,6 +26,10 @@
   margin: 10px;
   background-color: black;
   border-radius: 10px;
+
+  color: white;
+  font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .img-menu {

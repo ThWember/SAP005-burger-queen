@@ -6,4 +6,6 @@
     background-color: rgb(44, 53, 53);
     color: white;
     padding: 10px;  
+    width: 100%;
+    height: auto;
   }
