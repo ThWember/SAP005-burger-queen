@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+}
+
+#root {
+    display: flex;
+}
+
+.subscribe-area {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}

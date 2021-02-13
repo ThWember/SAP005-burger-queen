@@ -1,6 +1,34 @@
+* {
+    margin: 0;
+}
+#root {
+    display: flex;
+}
+
+.img-burguer {
+    width: 100%;
+    height: 300px;
+}
+
+.login-area{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-bottom: 50px;
+    background-color: rgb(226, 139, 8);
+}
+
 .input-box {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: center;
     margin-top: 50px;
+}
+
+@media only screen and (min-width: 900px){
+    .img-burguer {
+        height: 500px;
+    }
 }
