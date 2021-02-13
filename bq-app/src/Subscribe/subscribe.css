@@ -13,6 +13,7 @@
 }
 
 .register-box {
+    width: 100%;
     padding: 50px;
     background-color: rgb(226, 139, 8);
 }
