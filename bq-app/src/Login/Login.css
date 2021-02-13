@@ -14,9 +14,6 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-
-    padding-bottom: 50px;
-    background-color: rgb(226, 139, 8);
 }
 
 .input-box {
@@ -24,7 +21,9 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    margin-top: 50px;
+    
+    padding: 50px;
+    background-color: rgb(226, 139, 8);
 }
 
 @media only screen and (min-width: 900px){
