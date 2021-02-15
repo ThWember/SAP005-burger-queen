@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Header from './Components/Header';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import { useAlert } from 'react-alert';
-import '../App.css';
-import burguer from '../img/burguer.jpg';
+import './App.css';
+import burguer from './img/burguer.jpg';
 
 function Login() {
 
@@ -31,11 +31,11 @@ function Login() {
         localStorage.getItem("currentUser", result)
       })
      .catch(error => { console.log('error', error)
-        const options = {
-          position: positions.BOTTOM_CENTER,
-          transition: transitions.SCALE
-        }
-        useAlert(options).show('Houve algum erro, verifique se os campos foram corretamente preenchidos.')
+        // const options = {
+        //   position: positions.BOTTOM_CENTER,
+        //   transition: transitions.SCALE
+        // }
+        // useAlert(options).show('Houve algum erro, verifique se os campos foram corretamente preenchidos.')
       });
    }
    
