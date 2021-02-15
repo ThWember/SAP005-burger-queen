@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+}
+#root {
+  display: flex;
+}
+
+
+
+/* Login */
+
+.img-burguer {
+  width: 100%;
+  height: 300px;
+}
+
+.login-area{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  
+  padding: 50px;
+  background-color: rgb(226, 139, 8);
+}
+
+@media only screen and (min-width: 900px){
+  .img-burguer {
+      height: 430px;
+  }
+}
+
+/* Subscribe */
+
+.subscribe-area {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register-box {
+  width: 100%;
+  padding: 50px;
+  background-color: rgb(226, 139, 8);
+}
+
+
+
+/* Home */
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  margin-top: 30px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.each-item {
+  margin: 10px;
+  background-color: black;
+  border-radius: 10px;
+
+  color: white;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.img-menu {
+  width: 200px;
+  height: 200px;
+}
+
+.choose-itens {
+  border: solid 1px lightgray;
+}

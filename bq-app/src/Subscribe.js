@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './subscribe.css';
-import Header from '../Components/Header';
+import '../App.css';
+import Header from './Components/Header';
 import burguer from '../img/burguer.jpg';
 
   function Subscribe() {

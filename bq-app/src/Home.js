@@ -1,6 +1,6 @@
-import './Home.css';
+import '../App.css';
 import React, { useState, useEffect } from 'react';
-import Header from '../Components/Header';
+import Header from './Components/Header';
  
 
 function Home() {
