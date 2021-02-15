@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../App.css';
+import './App.css';
 import Header from './Components/Header';
-import burguer from '../img/burguer.jpg';
+import burguer from './img/burguer.jpg';
 
   function Subscribe() {
     const [newEmail, setNewEmail] = useState('');
