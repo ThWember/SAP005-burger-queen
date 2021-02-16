@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import Header from './Components/Header';
+import HeaderPhoto from './Components/HeaderPhoto';
 import burguer from './img/burguer.jpg';
+import { useHistory } from 'react-router-dom';
 
   function Subscribe() {
     const [newEmail, setNewEmail] = useState('');
@@ -10,6 +11,10 @@ import burguer from './img/burguer.jpg';
     const [restaurant, setRestaurant] = useState('');
     const [name, setName] = useState('');
    
+    const history = useHistory();
+    function goLogin() {
+      history.push('/')
+    }
    
   const subscribe = (newEmail, newPassword, role, restaurant, name) => {
    
@@ -32,10 +37,11 @@ import burguer from './img/burguer.jpg';
    
    fetch("https://lab-api-bq.herokuapp.com/users", requestOptions)
      .then(response => response.text())
-     .then(result => console.log(result))
+     .then(result => {console.log(result)
+       goLogin()
+     })
      .catch(error => console.log('error', error));
     }
-   
    
     const handleNewSubmit = (event) => {
      event.preventDefault();
@@ -44,8 +50,7 @@ import burguer from './img/burguer.jpg';
    
    return (
     <div className="subscribe-area">
-      <Header />
-       <img className="img-burguer" src={burguer}/>
+      <HeaderPhoto Image={burguer} />
         <div className="register-box">
           <form>
             <label>email</label>
