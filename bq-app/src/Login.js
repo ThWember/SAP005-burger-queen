@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import Header from './Components/Header';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import { useAlert } from 'react-alert';
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import './App.css';
+import { useHistory } from 'react-router-dom';
 import burguer from './img/burguer.jpg';
 
 function Login() {
 
+  const history = useHistory();
+
+  function goHome() {
+    history.push('/home')
+  }
   const [email, setEmail] = useState('');
   const [password, setPassord] = useState('');
    
@@ -26,9 +32,11 @@ function Login() {
   };
    
    fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
-     .then(response => response.text())
+     .then(response => response.json())
      .then(result => { console.log(result)
-        localStorage.getItem("currentUser", result)
+        if(result.role === "garçom") {
+          goHome();
+        }
       })
      .catch(error => { console.log('error', error)
         // const options = {
