@@ -58,5 +58,5 @@ const [menu, setMenu] = useState([]);
   );
 }
 
-export default Home;
+export default Saloon;
 
