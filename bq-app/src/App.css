@@ -30,6 +30,11 @@
   background-color: rgb(226, 139, 8);
 }
 
+.link-register{
+  font-weight: bolder;
+  margin: 0 10px;
+}
+
 @media only screen and (min-width: 900px){
   .img-burguer {
       height: 430px;
