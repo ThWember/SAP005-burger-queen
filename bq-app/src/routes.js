@@ -1,6 +1,7 @@
 import React from 'react';
 import Saloon from './Saloon';
 import Login from './Login';
+import Kitchen from './Kitchen';
 import Subscribe from './Subscribe';
 import { Switch, Route } from 'react-router-dom';
 
