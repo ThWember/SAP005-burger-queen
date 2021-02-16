@@ -39,18 +39,6 @@ const [menu, setMenu] = useState([]);
     )
   }
 
-  // const chooseList = []
-
-  // const allItens = document.querySelectorAll('.each-item')
-  // allItens.forEach((item) => {
-  //   item.addEventListener('click', (e) => {
-  //     let value = e.target.parentNode.attributes.getNamedItem('price').value;
-  //     let name = e.target.parentNode.attributes.getNamedItem('name').value;
-  //     console.log(name, value)
-  //     chooseList
-  //   })
-  // })
-
    return (
     <div className="App">
       <Header />
