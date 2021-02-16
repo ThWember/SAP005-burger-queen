@@ -29,7 +29,7 @@ const [menu, setMenu] = useState([]);
   const list = []
   for(let i of menu){
     list.push(
-      <div className="each-item" name={i.name} price={i.price} key={i.id}>
+      <div className="each-item" key={i.id}>
        <img className="img-menu" src={i.image}/>
        <p>{i.name}</p>
        <p>R${i.price}</p>
@@ -38,6 +38,8 @@ const [menu, setMenu] = useState([]);
      </div>
     )
   }
+
+
 
    return (
     <div className="App">
@@ -48,7 +50,7 @@ const [menu, setMenu] = useState([]);
             <div className="choose-itens">
             </div>
 
-            <p></p>
+              <div></div>
 
             <button>Confirmar pedido</button>
             <button>Cancelar Pedido</button>

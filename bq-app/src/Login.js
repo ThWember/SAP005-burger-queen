@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import Header from './Components/Header';
-// import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-// import { useAlert } from 'react-alert';
+import HeaderPhoto from './Components/HeaderPhoto';
 import './App.css';
-import { useHistory, Link } from 'react-router-dom';
 import burguer from './img/burguer.jpg';
+import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
 
@@ -17,6 +15,7 @@ function Login() {
   function goKitchen() {
     history.push('/kitchen')
   }
+
 
   const [email, setEmail] = useState('');
   const [password, setPassord] = useState('');
@@ -39,18 +38,18 @@ function Login() {
    fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
      .then(response => response.json())
      .then(result => { console.log(result)
-        if(result.role === "garçom") {
+
+        if(result.role == "salão" || result.role == "Salão") {
           goSaloon();
         }
-        else if(result.role === "cozinha"){
+        else if(result.role == "cozinha" || result.role == "Cozinha"){
           goKitchen();
         }
       })
      .catch(error => { console.log('error', error)
       });
-   }
-   
-   
+    }
+    
     const handleSubmit = (event) => {
       event.preventDefault();
       login(email, password)
@@ -58,8 +57,7 @@ function Login() {
 
    return (
     <div className="login-area"> 
-      <Header />
-      <img className="img-burguer" src={burguer}/>
+      <HeaderPhoto Image={burguer}/>   
       <div className="input-box">
           <form>
             <label>email</label>
@@ -68,9 +66,9 @@ function Login() {
              <input type="password" autoComplete="off" value={password} onChange={(event) => setPassord(event.target.value)}/> 
              <button type="submit" onClick={(event) => handleSubmit(event)}>Entrar</button>  
           </form>
-          <div className="link-register"><Link to="/subscribe">Entrando agora para o time? Cadastre-se!</Link></div>
+          <div className="link-register"><Link to="/subscribe">Entrando agora para a equipe? Cadastre-se!</Link></div>
        </div>
     </div>
-)}
+  )};
 
 export default Login;
