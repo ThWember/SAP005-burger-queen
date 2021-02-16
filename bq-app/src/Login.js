@@ -10,9 +10,14 @@ function Login() {
 
   const history = useHistory();
 
-  function goHome() {
-    history.push('/home')
+  function goSaloon() {
+    history.push('/saloon')
   }
+
+  function goKitchen() {
+    history.push('/kitchen')
+  }
+
   const [email, setEmail] = useState('');
   const [password, setPassord] = useState('');
    
@@ -35,7 +40,10 @@ function Login() {
      .then(response => response.json())
      .then(result => { console.log(result)
         if(result.role === "garçom") {
-          goHome();
+          goSaloon();
+        }
+        else if(result.role === "cozinha"){
+          goKitchen();
         }
       })
      .catch(error => { console.log('error', error)

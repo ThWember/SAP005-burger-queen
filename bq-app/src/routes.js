@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './Home';
+import Saloon from './Saloon';
 import Login from './Login';
 import Subscribe from './Subscribe';
 import { Switch, Route } from 'react-router-dom';
@@ -10,7 +10,8 @@ const Routes = () => {
         <Switch>
             <Route path='/' component={Login} exact/>
             <Route path='/subscribe' component={Subscribe} exact/>
-            <Route path='/home' component={Home} exact/>
+            <Route path='/saloon' component={Saloon} exact/>
+            <Route path='/kitchen' component={Kitchen} exact/>
         </Switch>
     )
 }
