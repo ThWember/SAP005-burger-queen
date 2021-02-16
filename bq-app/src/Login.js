@@ -3,7 +3,7 @@ import Header from './Components/Header';
 // import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 // import { useAlert } from 'react-alert';
 import './App.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import burguer from './img/burguer.jpg';
 
 function Login() {
@@ -39,11 +39,6 @@ function Login() {
         }
       })
      .catch(error => { console.log('error', error)
-        // const options = {
-        //   position: positions.BOTTOM_CENTER,
-        //   transition: transitions.SCALE
-        // }
-        // useAlert(options).show('Houve algum erro, verifique se os campos foram corretamente preenchidos.')
       });
    }
    
@@ -65,6 +60,7 @@ function Login() {
              <input type="password" autoComplete="off" value={password} onChange={(event) => setPassord(event.target.value)}/> 
              <button type="submit" onClick={(event) => handleSubmit(event)}>Entrar</button>  
           </form>
+          <div className="link-register"><Link to="/subscribe">Entrando agora para o time? Cadastre-se!</Link></div>
        </div>
     </div>
 )}
