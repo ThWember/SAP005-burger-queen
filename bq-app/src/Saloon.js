@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Components/Header';
  
 
-function Home() {
+function Saloon() {
  
 const [menu, setMenu] = useState([]);
 
