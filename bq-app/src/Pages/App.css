@@ -91,6 +91,37 @@
   height: 200px;
 }
 
+.each-item-choose {
+  border: 1px solid lightgray;
+}
+.each-item-choose p {
+  font-size: 25px;
+  padding: 10px;
+}
+
 .choose-itens {
   border: solid 1px lightgray;
+}
+
+.confirm-button {
+  background-color:white;
+  border: 1px solid rgb(24, 170, 97);
+  border-radius: 9px;
+  font-size: 20px;
+  padding: 6px;
+  transition: 1s;
+}
+.confirm-button:hover {
+  background-color: rgb(197, 245, 215);
+}
+
+.cancel-button {
+  background-color: rgb(173, 73, 55);
+  border: 1px solid rgb(226, 73, 73);
+  border-radius: 9px;
+  font-size: 20px;
+  padding: 6px;
+}
+.cancel-button:hover {
+  background-color: rgb(230, 110, 101);
 }
