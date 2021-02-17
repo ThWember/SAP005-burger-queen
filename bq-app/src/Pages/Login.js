@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import HeaderPhoto from './Components/HeaderPhoto';
+import HeaderPhoto from '../Components/HeaderPhoto';
 import './App.css';
-import burguer from './img/burguer.jpg';
+import burguer from '../img/burguer.jpg';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
@@ -38,7 +38,8 @@ function Login() {
    fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
      .then(response => response.json())
      .then(result => { console.log(result)
-
+        const token = result.token
+        localStorage.getItem('token', token)
         if(result.role == "salão" || result.role == "Salão") {
           goSaloon();
         }
@@ -47,6 +48,7 @@ function Login() {
         }
       })
      .catch(error => { console.log('error', error)
+        alert('Houve algum erro')
       });
     }
     
