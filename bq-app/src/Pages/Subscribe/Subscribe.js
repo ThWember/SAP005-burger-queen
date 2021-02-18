@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './App.css';
-import HeaderPhoto from '../Components/HeaderPhoto';
-import burguer from '../img/burguer.jpg';
+import './Subscribe.css';
+import HeaderPhoto from '../../Components/HeaderPhoto';
+import burguer from '../../img/burguer.jpg';
 import { useHistory } from 'react-router-dom';
 
   function Subscribe() {
