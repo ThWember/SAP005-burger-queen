@@ -39,8 +39,8 @@ function Login() {
      .then(response => response.json())
      .then(result => { console.log(result)
         const token = result.token
-        localStorage.getItem('token', token)
-        if(result.role == "salão" || result.role == "Salão") {
+        localStorage.setItem('token', token)
+        if(result.role == "garçom" || result.role == "Salão") {
           goSaloon();
         }
         else if(result.role == "cozinha" || result.role == "Cozinha"){
