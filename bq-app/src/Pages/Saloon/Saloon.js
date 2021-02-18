@@ -1,4 +1,5 @@
 import './Saloon.css';
+import { SendOrder } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
  
@@ -6,9 +7,9 @@ import Header from '../../Components/Header';
 function Saloon() {
  
 const [menu, setMenu] = useState([]);
-const [products, setProducts] = useState([]);
 const [client, setClient] = useState("");
 const [table, setTable] = useState("");
+const [products, setProducts] = useState([]);
 
 const idUser = localStorage.getItem("token")
 
@@ -31,9 +32,17 @@ const idUser = localStorage.getItem("token")
       .catch(error => console.log('error', error));
      },[])
 
-    const handleItem = (product) => {
+    
+     const handleItem = (product) => {
       setProducts([...products, product])
     }
+
+    const handleConfirm = (event) => {
+      event.preventDefault();
+      SendOrder(client, table)
+    }
+
+    const orderList = []
 
    return (
     <div className="App">
@@ -54,7 +63,8 @@ const idUser = localStorage.getItem("token")
             })
           }</div>  
 
-          <div className="sum-area">
+       <div className="sum-area">
+
           <div className="table-info">
             <input type="text" value={client} onChange={
                 (event) => setClient(event.target.value)}
@@ -64,19 +74,25 @@ const idUser = localStorage.getItem("token")
                 placeholder="Mesa" />
           </div>
 
-            <div className="choose-itens">{
-              products.length != 0 &&
-              products.map((i, index) => {
-                return (
-                  <div className="each-item-choose" key={index}>
-                    <p>{i.name} - R${i.price}</p>
-                  </div>
-                )
-              })
-            }
+          <div className="choose-itens">
+         { 
+          products.length != 0 &&
+          products.map((i, index) => {
+          orderList.push(i.name)
+          localStorage.setItem("order", orderList)
+            return (
+              <div className="each-item-choose" key={index}>
+                <p>{i.name} - R${i.price}</p>
+              </div>
+            )
+          })
+          }
           </div>
-            
-            <button className="confirm-button">Confirmar</button>
+
+            <button className="confirm-button" onClick={
+               (event) => handleConfirm(event)}>
+                 Confirmar
+              </button>
             <button className="cancel-button">Cancelar</button>
           </div>
         </div>

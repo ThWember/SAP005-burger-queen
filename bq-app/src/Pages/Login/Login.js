@@ -16,11 +16,10 @@ function Login() {
     history.push('/kitchen')
   }
 
-
   const [email, setEmail] = useState('');
   const [password, setPassord] = useState('');
-   
-  const login = (email, password) => {
+
+    const login = (email, password) => {
     let myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
    
