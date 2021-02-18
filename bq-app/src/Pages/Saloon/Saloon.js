@@ -1,15 +1,17 @@
-import './App.css';
+import './Saloon.css';
 import React, { useState, useEffect } from 'react';
-import Header from '../Components/Header';
+import Header from '../../Components/Header';
  
 
 function Saloon() {
  
 const [menu, setMenu] = useState([]);
 const [products, setProducts] = useState([]);
+const [client, setClient] = useState("");
+const [table, setTable] = useState("");
 
 const idUser = localStorage.getItem("token")
-console.log("aqui era pra ser o token",idUser)
+
  let myHeaders = new Headers();
  myHeaders.append("Authorization", `${idUser}`);
  
@@ -40,7 +42,8 @@ console.log("aqui era pra ser o token",idUser)
           <div className="menu">{
             menu.map((i) => {
               return (
-              <div className="each-item" key={i.id} onClick={() => handleItem(i)}>
+              <div className="each-item" key={i.id} onClick={
+                () => handleItem(i)}>
                 <img className="img-menu" src={i.image}/>
                 <p>{i.name}</p>
                 <p>R${i.price}</p>
@@ -52,6 +55,15 @@ console.log("aqui era pra ser o token",idUser)
           }</div>  
 
           <div className="sum-area">
+          <div className="table-info">
+            <input type="text" value={client} onChange={
+                (event) => setClient(event.target.value)}
+                placeholder="Nome do cliente" />
+            <input type="text" value={table} onChange={
+                (event) => setTable(event.target.value)}
+                placeholder="Mesa" />
+          </div>
+
             <div className="choose-itens">{
               products.length != 0 &&
               products.map((i, index) => {

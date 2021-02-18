@@ -1,8 +1,8 @@
 import React from 'react';
-import Saloon from './Pages/Saloon';
-import Login from './Pages/Login';
-import Kitchen from './Pages/Kitchen';
-import Subscribe from './Pages/Subscribe';
+import Saloon from './Pages/Saloon/Saloon';
+import Login from './Pages/Login/Login';
+import Kitchen from './Pages/Kitchen/Kitchen';
+import Subscribe from './Pages/Subscribe/Subscribe';
 import { Switch, Route } from 'react-router-dom';
 
 

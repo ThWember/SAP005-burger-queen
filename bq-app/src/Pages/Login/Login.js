@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import HeaderPhoto from '../Components/HeaderPhoto';
-import './App.css';
-import burguer from '../img/burguer.jpg';
+import HeaderPhoto from '../../Components/HeaderPhoto';
+import './Login.css';
+import burguer from '../../img/burguer.jpg';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
@@ -63,12 +63,19 @@ function Login() {
       <div className="input-box">
           <form>
             <label>email</label>
-             <input type="text" value={email} onChange={(event) => setEmail(event.target.value)}/> 
+             <input type="text" value={email} onChange={
+               (event) => setEmail(event.target.value)}/> 
              <label>password</label> 
-             <input type="password" autoComplete="off" value={password} onChange={(event) => setPassord(event.target.value)}/> 
-             <button type="submit" onClick={(event) => handleSubmit(event)}>Entrar</button>  
+            
+             <input type="password" autoComplete="off" value={password} onChange={
+               (event) => setPassord(event.target.value)}/> 
+            
+             <button type="submit" onClick={
+               (event) => handleSubmit(event)}>Entrar</button>  
           </form>
-          <div className="link-register"><Link to="/subscribe">Entrando agora para a equipe? Cadastre-se!</Link></div>
+          <div className="link-register">
+            <Link to="/subscribe">Entrando agora para a equipe? Cadastre-se!</Link>
+          </div>
        </div>
     </div>
   )};
