@@ -8,8 +8,10 @@ function Saloon() {
 const [menu, setMenu] = useState([]);
 const [products, setProducts] = useState([]);
 
+const idUser = localStorage.getItem("token")
+console.log("aqui era pra ser o token",idUser)
  let myHeaders = new Headers();
- myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbmRvQGhvdG1haWwuY29tIiwiaWQiOjExLCJpYXQiOjE2MTI5OTA3NzEsImV4cCI6MTY0NDU0ODM3MX0.UgB1aY5mqNLK0MY-VhTv3fepMC-tVIOfQGDqXND44FY");
+ myHeaders.append("Authorization", `${idUser}`);
  
   let requestOptions = {
     method: 'GET',
