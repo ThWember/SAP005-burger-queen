@@ -45,6 +45,14 @@
     margin: 20px;
   }
   
+  .total-box {
+    display: flex;
+    justify-content: center;
+    color: rgb(90, 90, 90);
+    padding: 10px;
+    font-size: 25px;
+  }
+
   .confirm-button {
     background-color:white;
     border: 1px solid rgb(24, 170, 97);

@@ -11,7 +11,9 @@ const [client, setClient] = useState("");
 const [table, setTable] = useState("");
 const [products, setProducts] = useState([]);
 
-const idUser = localStorage.getItem("token")
+const idUser = localStorage.getItem("token");
+const orderList = []
+const value = []
 
  let myHeaders = new Headers();
  myHeaders.append("Authorization", `${idUser}`);
@@ -27,6 +29,7 @@ const idUser = localStorage.getItem("token")
     fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
       .then(response => response.json())
       .then(result => {
+        localStorage.setItem("total", " ")
         setMenu(result)
       })
       .catch(error => console.log('error', error));
@@ -41,8 +44,6 @@ const idUser = localStorage.getItem("token")
       event.preventDefault();
       SendOrder(client, table)
     }
-
-    const orderList = []
 
    return (
     <div className="App">
@@ -78,16 +79,27 @@ const idUser = localStorage.getItem("token")
          { 
           products.length != 0 &&
           products.map((i, index) => {
-          orderList.push(i.name)
-          localStorage.setItem("order", orderList)
-            return (
-              <div className="each-item-choose" key={index}>
-                <p>{i.name} - R${i.price}</p>
-              </div>
+
+           orderList.push(i.id)
+           value.push(i.price)
+           
+           const total = value.reduce((sum, num) => sum + num, 0)
+
+           localStorage.setItem("order", orderList)
+           localStorage.setItem("total", total)
+           
+             return (
+               <div className="each-item-choose" key={index}>
+                 <p>{i.name} - R${i.price}</p>
+               </div>
             )
           })
           }
           </div>
+
+            <div className="total-box">
+             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
+            </div>
 
             <button className="confirm-button" onClick={
                (event) => handleConfirm(event)}>
