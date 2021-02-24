@@ -20,6 +20,12 @@
     background-color: rgb(226, 139, 8);
   }
   
+  .input-box form label {
+    margin: 8px;
+    font-weight: bolder;
+    color: rgb(21, 36, 36);
+  }
+
   .link-register{
     font-weight: bolder;
     margin: 0 10px;

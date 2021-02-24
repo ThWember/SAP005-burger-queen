@@ -17,7 +17,7 @@ function Login() {
   }
 
   const [email, setEmail] = useState('');
-  const [password, setPassord] = useState('');
+  const [password, setPassword] = useState('');
 
     const login = (email, password) => {
     let myHeaders = new Headers();
@@ -39,10 +39,10 @@ function Login() {
      .then(result => { console.log(result)
         const token = result.token
         localStorage.setItem('token', token)
-        if(result.role == "garçom" || result.role == "Salão") {
+        if(result.role === "garçom" || result.role === "Salão") {
           goSaloon();
         }
-        else if(result.role == "cozinha" || result.role == "Cozinha"){
+        else if(result.role === "cozinha" || result.role === "Cozinha"){
           goKitchen();
         }
       })
@@ -61,13 +61,13 @@ function Login() {
       <HeaderPhoto Image={burguer}/>   
       <div className="input-box">
           <form>
-            <label>email</label>
+            <label>EMAIL</label>
              <input type="text" value={email} onChange={
                (event) => setEmail(event.target.value)}/> 
-             <label>password</label> 
+             <label>SENHA</label> 
             
              <input type="password" autoComplete="off" value={password} onChange={
-               (event) => setPassord(event.target.value)}/> 
+               (event) => setPassword(event.target.value)}/> 
             
              <button type="submit" onClick={
                (event) => handleSubmit(event)}>Entrar</button>  
