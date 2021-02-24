@@ -19,6 +19,12 @@
     padding-bottom: 5px;
   }
   
+  .loading-img {
+    width: 200px;
+    margin-left: 60px;
+    animation: load-logo infinite 2s;
+}
+
   .img-menu {
     width: 200px;
     height: 200px;
@@ -74,4 +80,13 @@
   }
   .cancel-button:hover {
     background-color: rgb(230, 110, 101);
+  }
+
+  @keyframes load-logo {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }

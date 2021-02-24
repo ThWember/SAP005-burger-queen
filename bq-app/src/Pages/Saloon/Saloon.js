@@ -1,5 +1,6 @@
 import './Saloon.css';
-import { SendOrder } from './functions';
+//import load from '../../img/loading.png';
+import { SendOrder, Loading } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
  
@@ -12,7 +13,8 @@ const [table, setTable] = useState("");
 const [products, setProducts] = useState([]);
 
 const idUser = localStorage.getItem("token");
-const orderList = []
+const orderListId = []
+const ordersProducts = []
 const value = []
 
  let myHeaders = new Headers();
@@ -42,26 +44,29 @@ const value = []
 
     const handleConfirm = (event) => {
       event.preventDefault();
-      SendOrder(client, table)
+      SendOrder(client, table, ordersProducts, orderListId)
     }
+
 
    return (
     <div className="App">
       <Header />
         <div className="main">
-          <div className="menu">{
+          <div className="menu">
+           {/* <Loading Class={"menu"} Icon={load} /> */}
+           {
             menu.map((i) => {
               return (
               <div className="each-item" key={i.id} onClick={
                 () => handleItem(i)}>
-                <img className="img-menu" src={i.image}/>
+                <img className="img-menu" alt="food" src={i.image}/>
                 <p>{i.name}</p>
                 <p>R${i.price}</p>
                 <p>{i.flavor}</p>   
                 <p>{i.complement}</p>
               </div>
               )
-            })
+            }) 
           }</div>  
 
        <div className="sum-area">
@@ -77,24 +82,24 @@ const value = []
 
           <div className="choose-itens">
          { 
-          products.length != 0 &&
+          products.length !== 0 &&
           products.map((i, index) => {
 
-           orderList.push(i.id)
+           orderListId.push(i.id)
            value.push(i.price)
            
            const total = value.reduce((sum, num) => sum + num, 0)
 
-           localStorage.setItem("order", orderList)
+           ordersProducts.push(i.name)                              
            localStorage.setItem("total", total)
            
-             return (
+           return (
                <div className="each-item-choose" key={index}>
                  <p>{i.name} - R${i.price}</p>
                </div>
-            )
-          })
-          }
+              )
+            })
+           }   
           </div>
 
             <div className="total-box">
