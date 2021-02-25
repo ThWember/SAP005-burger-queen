@@ -1,29 +1,47 @@
-//import React from 'react';
 
-export const SendOrder = (name, table, itens, idItem) => {
-    const ordersMade = []
-    ordersMade.push({"Cliente": name,
-                     "Mesa": table,
-                     "Produtos": [itens]
-                     })
-    localStorage.setItem("OrdersShow", JSON.stringify(ordersMade))
-
-    const ordersApi = []
-    ordersApi.push({"client": `${name}`,
+export const SendOrder = (name, table, idItem, qtd) => {
+  const ordersApi = []
+   
+  let objectOrder = {"client": `${name}`,
         "table": `${table}`,
-        "products": [{
-            "id": idItem,
-            "qtd": 1
-          }]
-        })
-    localStorage.setItem("OrderApi", JSON.stringify(ordersApi))
+        "products": [        
+        ]}
 
-    alert("Pedido enviado a cozinha")
+    for (let i = 0; i < idItem.length; i++){
+       objectOrder.products.push({
+        "id": idItem[i],
+        "qtd": qtd[i]
+      },)
+    }
+
+    console.log(objectOrder.products[0])
+    ordersApi.push(objectOrder)
+      
+    localStorage.setItem("OrderApi", JSON.stringify(ordersApi));
+
+    const idUser = localStorage.getItem("token");
+    const order = localStorage.getItem("OrderApi").toString()
+    const requestOrder = order.slice(1, -1)
+
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", `${idUser}`);
+    myHeaders.append("Content-Type", "application/json");
+
+    let raw = requestOrder;
+
+    let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+
+    fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
+     .then(response => response.text())
+     .then(result => {console.log(result)
+      alert("Pedido enviado a cozinha")
+     })
+     .catch(error => console.log('error', error));
+
+     
   }
-
-    
-// export const Loading = ({Icon, Class}) => {
-//     if({Class}.length === 0){  
-//      return <img className="loading-img" src={Icon} alt="loading"/>
-//     } 
-// }

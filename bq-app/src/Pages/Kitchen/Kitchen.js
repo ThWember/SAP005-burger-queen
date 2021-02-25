@@ -6,44 +6,37 @@ function Kitchen(){
 
   const [orders, setOrders] = useState([]);
   const idUser = localStorage.getItem("token");
-  const orderSaved = localStorage.getItem("OrdersShow")
-  const order = localStorage.getItem("OrderApi").toString()
-  const requestOrder = order.slice(1, -1)
-  const printItens = []
+  let container = []
 
   let myHeaders = new Headers();
-    myHeaders.append("Authorization", `${idUser}`);
-    myHeaders.append("Content-Type", "application/json");
-
-  let raw = requestOrder;
-
+  myHeaders.append("Authorization", `${idUser}`);
+  
   let requestOptions = {
-    method: 'POST',
+    method: 'GET',
     headers: myHeaders,
-    body: raw,
     redirect: 'follow'
-    };
-
+  };
+  
   useEffect(() => {
 
-    fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
-     .then(response => response.text())
-     .then(result => {console.log(result)
-        setOrders(result.status) 
-     })
-     .catch(error => console.log('error', error));
-    },[]);    
+  fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
+    .then(response => response.json())
+    .then(result => {console.log(result)
+      container.push(result)
+      setOrders(container)
+    })
+    .catch(error => console.log('error', error));
+  },[]);
 
+  
+ 
 
- return(
-    <div>
-      <Header />
-        <div>
-        {
-        orderSaved
-        }</div>
-    </div>
+ return(<div>
+   <Header />{
+  orders
+   } </div>
+    
  )
-}
+ }
 
 export default Kitchen;
