@@ -71,15 +71,23 @@
     background-color: rgb(197, 245, 215);
   }
   
-  .cancel-button {
-    background-color: rgb(173, 73, 55);
-    border: 1px solid rgb(226, 73, 73);
-    border-radius: 9px;
+  .increment-btn {
+    background-color: white;
+    font-weight: bolder;
+    border: 1px solid black;
+    color: green;
     font-size: 20px;
-    padding: 6px;
+    border-radius: 6px;
+    width: 40px;
   }
-  .cancel-button:hover {
-    background-color: rgb(230, 110, 101);
+  .decrement-btn {
+    background-color: white;
+    font-weight: bolder;
+    border: 1px solid black;
+    color: rgb(248, 0, 21);
+    font-size: 20px;
+    border-radius: 6px;
+    width: 40px;
   }
 
   @keyframes load-logo {

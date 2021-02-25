@@ -1,6 +1,5 @@
 import './Saloon.css';
-//import load from '../../img/loading.png';
-import { SendOrder, Loading } from './functions';
+import { SendOrder } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
  
@@ -11,11 +10,12 @@ const [menu, setMenu] = useState([]);
 const [client, setClient] = useState("");
 const [table, setTable] = useState("");
 const [products, setProducts] = useState([]);
+let [counter, setCounter] = useState(1);
 
 const idUser = localStorage.getItem("token");
 const orderListId = []
-const ordersProducts = []
 const value = []
+const amount = []
 
  let myHeaders = new Headers();
  myHeaders.append("Authorization", `${idUser}`);
@@ -39,37 +39,46 @@ const value = []
 
     
      const handleItem = (product) => {
-      setProducts([...products, product])
+      setProducts([...products, product]);
+      localStorage.setItem("qtd", counter)
+
+      if(localStorage.getItem("qtd") >= 1 ){
+         amount.push(localStorage.getItem("qtd"))
+      }
+      setCounter(counter = 1)
+      console.log(amount, "array")
     }
 
     const handleConfirm = (event) => {
       event.preventDefault();
-      SendOrder(client, table, ordersProducts, orderListId)
+      SendOrder(client, table, orderListId, amount)
     }
 
+    const increment = (event) => {
+      event.preventDefault();
+      setCounter(counter + 1)
+    }
 
-   return (
-    <div className="App">
-      <Header />
-        <div className="main">
-          <div className="menu">
-           {/* <Loading Class={"menu"} Icon={load} /> */}
-           {
-            menu.map((i) => {
-              return (
-              <div className="each-item" key={i.id} onClick={
-                () => handleItem(i)}>
-                <img className="img-menu" alt="food" src={i.image}/>
-                <p>{i.name}</p>
-                <p>R${i.price}</p>
-                <p>{i.flavor}</p>   
-                <p>{i.complement}</p>
-              </div>
+  return (
+   <div className="App">
+    <Header />
+      <div className="main">
+        <div className="menu">{
+          menu.map((i) => {
+           return (
+            <div className="each-item" key={i.id} onClick={
+              () => handleItem(i)}>
+              <img className="img-menu" alt="food" src={i.image}/>
+              <p>{i.name}</p>
+              <p>R${i.price}</p>
+              <p>{i.flavor}</p>   
+              <p>{i.complement}</p>
+            </div>
               )
             }) 
-          }</div>  
+        }</div>  
 
-       <div className="sum-area">
+      <div className="sum-area">
 
           <div className="table-info">
             <input type="text" value={client} onChange={
@@ -80,40 +89,39 @@ const value = []
                 placeholder="Mesa" />
           </div>
 
-          <div className="choose-itens">
-         { 
+        <div className="choose-itens">{  
+
           products.length !== 0 &&
           products.map((i, index) => {
 
-           orderListId.push(i.id)
-           value.push(i.price)
-           
-           const total = value.reduce((sum, num) => sum + num, 0)
+            orderListId.push(i.id)
+            value.push(i.price)
+            
+            const total = value.reduce((sum, num) => sum + num, 0)                             
+            localStorage.setItem("total", total)
 
-           ordersProducts.push(i.name)                              
-           localStorage.setItem("total", total)
-           
-           return (
-               <div className="each-item-choose" key={index}>
-                 <p>{i.name} - R${i.price}</p>
-               </div>
-              )
-            })
-           }   
-          </div>
-
-            <div className="total-box">
+            return (
+              <div className="each-item-choose" key={index}>
+                 <p>{i.name} - R${i.price}</p>  
+                 <button className="increment-btn" onClick={(event) => 
+                  increment(event)}> 
+                 + </button>
+                 <button className="decrement-btn"> - </button>
+              </div>
+            )
+          })
+        }</div>
+          <div className="total-box">
              <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
-            </div>
-
-            <button className="confirm-button" onClick={
-               (event) => handleConfirm(event)}>
-                 Confirmar
-              </button>
-            <button className="cancel-button">Cancelar</button>
           </div>
-        </div>
+
+          <button className="confirm-button" onClick={
+            (event) => handleConfirm(event)}>
+             Confirmar
+          </button>
+      </div>
     </div>
+  </div>
   );
 }
 
