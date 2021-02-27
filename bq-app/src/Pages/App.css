@@ -12,11 +12,19 @@
   text-align: center;
 }
 
-div.login-data{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.Header-container {
+  width: 100%;
+}
+
+.Header {
+  font-family: 'Fredericka the Great', cursive;
+  text-align: center;
+  font-size: 40px;
+  background-color: rgb(44, 53, 53);
+  color: white;
+  padding: 10px;  
+  width: 100%;
+  height: auto;
 }
 
 img.logo {
@@ -28,15 +36,37 @@ img.logo {
 }
 
 .input-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-color: #ad0c0a;
 }
 
-.input-box form {
+.login-data{
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  padding-bottom: 90px;
+}
+
+.email-data, .password-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-box form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 40vw;
+  margin: 20px;
 }
 
 .input-box form label {

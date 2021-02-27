@@ -1,4 +1,4 @@
-import './Components.css';
+import '../Pages/App.css';
 
 const HeaderPhoto = ({Image}) => {
     return (<div className="Header-container">
