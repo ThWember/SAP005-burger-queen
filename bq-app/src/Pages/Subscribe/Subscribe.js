@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Subscribe.css';
 import HeaderPhoto from '../../Components/HeaderPhoto';
-import burguer from '../../img/burguer.jpg';
+import logo from '../../img/Logo.png';
 import { useHistory } from 'react-router-dom';
 
   function Subscribe() {
@@ -50,7 +50,7 @@ import { useHistory } from 'react-router-dom';
    
    return (
     <div className="subscribe-area">
-      <HeaderPhoto Image={burguer} />
+      <HeaderPhoto Image={logo} />
         <div className="register-box">
           <form>
             <label>email</label>

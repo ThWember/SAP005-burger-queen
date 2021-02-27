@@ -1,11 +1,57 @@
 * {
   margin: 0;
 }
+
 #root {
   display: flex;
 }
+
 .App {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+}
+
+div.login-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img.logo {
+  width: 50%;
+  height: 50px;
+  align-items: center;
+  align-content: center;
+  padding-top: 10px;
+}
+
+.input-box {
+  width: 100%;
+  height: 100vh;
+  background-color: #ad0c0a;
+}
+
+.input-box form {
+  flex-direction: column;
+  justify-content: center;
+  width: 40vw;
+}
+
+.input-box form label {
+  margin: 8px;
+  font-weight: bolder;
+  color: rgb(21, 36, 36);
+}
+
+.link-register{
+  font-weight: bolder;
+  margin: 0 10px;
+}
+
+@media only screen and (min-width: 900px){
+  .img-burguer {
+      height: 430px;
+  }
 }

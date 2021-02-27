@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HeaderPhoto from '../../Components/HeaderPhoto';
-import './Login.css';
-import burguer from '../../img/burguer.jpg';
+import '../../Pages/App.css';
+import logo from '../../img/Logo.png';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
@@ -58,24 +58,28 @@ function Login() {
 
    return (
     <div className="login-area"> 
-      <HeaderPhoto Image={burguer}/>   
+      <HeaderPhoto Image={logo}/>   
       <div className="input-box">
+        <div className="login-data">
           <form>
-            <label>EMAIL</label>
-             <input type="text" value={email} onChange={
-               (event) => setEmail(event.target.value)}/> 
-             <label>SENHA</label> 
-            
-             <input type="password" autoComplete="off" value={password} onChange={
-               (event) => setPassword(event.target.value)}/> 
-            
+            <div className="email-data">
+              <label>EMAIL</label>
+              <input type="text" value={email} onChange={
+                (event) => setEmail(event.target.value)}/> 
+            </div>
+            <div className="password-data">
+              <label>SENHA</label> 
+              <input type="password" autoComplete="off" value={password} onChange={
+                (event) => setPassword(event.target.value)}/> 
+            </div>
              <button type="submit" onClick={
                (event) => handleSubmit(event)}>Entrar</button>  
           </form>
           <div className="link-register">
             <Link to="/subscribe">Entrando agora para a equipe? Cadastre-se!</Link>
           </div>
-       </div>
+        </div>
+      </div>
     </div>
   )};
 
