@@ -5,7 +5,7 @@ import burguer from '../../img/burguer.jpg';
 import helmet from '../../img/helmet.png';
 import { useHistory, Link } from 'react-router-dom';
 
-function Login() {
+function Login() { 
 
   const history = useHistory();
 

@@ -1,5 +1,36 @@
 import React from 'react';
 
+export const GetProducts = (state1, state2, state3) => {
+
+  const idUser = localStorage.getItem("token");
+  let myHeaders = new Headers();
+  myHeaders.append("Authorization", `${idUser}`);
+
+ let requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+ };
+
+   fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
+     .then(response => response.json())
+     .then(result => {
+       localStorage.setItem("total", " ")
+       const breakfast = result.filter((itens) =>
+         itens.type.includes('breakfast')
+       );
+       const burgers = result.filter((itens) =>
+         itens.sub_type.includes('hamburguer')
+       );
+       const drinks = result.filter((itens) =>
+         itens.sub_type.includes('drinks')
+       );
+       state1(breakfast);
+       state2(burgers);
+       state3(drinks);
+     })
+     .catch(error => console.log('error', error));
+}
 
 export const SendOrder = (name, table, idItem, qtd) => {
   const ordersApi = []
@@ -47,16 +78,3 @@ export const SendOrder = (name, table, idItem, qtd) => {
 
      
   }
-
-
-export const ItensDetails = ({eachItem}) => {
-  return(
-    <>
-      <img className="img-menu" alt="food" src={eachItem.image}/>
-      <p>{eachItem.name}</p>
-      <p>R${eachItem.price}</p>
-      <p>{eachItem.flavor}</p>   
-      <p>{eachItem.complement}</p>
-    </>
-  )
-}
