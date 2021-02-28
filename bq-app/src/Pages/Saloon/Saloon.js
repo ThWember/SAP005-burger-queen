@@ -2,11 +2,12 @@ import './Saloon.css';
 import { SendOrder } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
- 
+import { ItensDetails } from './functions';
 
 function Saloon() {
  
-const [menu, setMenu] = useState([]);
+const [breakfast, setBreakfast] = useState([]);
+const [allDay, setAllDay] = useState([]);
 const [client, setClient] = useState("");
 const [table, setTable] = useState("");
 const [products, setProducts] = useState([]);
@@ -32,7 +33,14 @@ const amount = []
       .then(response => response.json())
       .then(result => {
         localStorage.setItem("total", " ")
-        setMenu(result)
+        const breakfast = result.filter((itens) =>
+          itens.type.includes('breakfast')
+        );
+        const allday = result.filter((itens) =>
+          itens.type.includes('all-day')
+        );
+        setBreakfast(breakfast)
+        setAllDay(allday)
       })
       .catch(error => console.log('error', error));
      },[])
@@ -62,21 +70,10 @@ const amount = []
   return (
    <div className="App">
     <Header />
-      <div className="main">
-        <div className="menu">{
-          menu.map((i) => {
-           return (
-            <div className="each-item" key={i.id} onClick={
-              () => handleItem(i)}>
-              <img className="img-menu" alt="food" src={i.image}/>
-              <p>{i.name}</p>
-              <p>R${i.price}</p>
-              <p>{i.flavor}</p>   
-              <p>{i.complement}</p>
-            </div>
-              )
-            }) 
-        }</div>  
+      <div className="main">{
+        <>
+       <button>Café</button>
+       <button>Lanches</button>
 
       <div className="sum-area">
 
@@ -120,10 +117,11 @@ const amount = []
              Confirmar
           </button>
       </div>
-    </div>
+      </>
+  }</div>
   </div>
   );
 }
-
+         
 export default Saloon;
 

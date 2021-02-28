@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HeaderPhoto from '../../Components/HeaderPhoto';
 import './Login.css';
 import burguer from '../../img/burguer.jpg';
+import helmet from '../../img/helmet.png';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() {
@@ -58,7 +59,7 @@ function Login() {
 
    return (
     <div className="login-area"> 
-      <HeaderPhoto Image={burguer}/>   
+      <HeaderPhoto Image={burguer} Logo={helmet}/>   
       <div className="input-box">
           <form>
             <label>EMAIL</label>
