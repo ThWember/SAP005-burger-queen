@@ -72,8 +72,8 @@ function Login() {
               <input type="password" autoComplete="off" value={password} onChange={
                 (event) => setPassword(event.target.value)}/> 
             </div>
-             <button type="submit" onClick={
-               (event) => handleSubmit(event)}>Entrar</button>  
+             <button className="login-buttom" type="submit" onClick={
+               (event) => handleSubmit(event)}>ENTRAR</button>  
           </form>
           <div className="link-register">
             <Link to="/subscribe">Entrando agora para a equipe? Cadastre-se!</Link>
