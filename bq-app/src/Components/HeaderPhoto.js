@@ -1,10 +1,8 @@
-import React from 'react';
-import './Components.css';
+import '../Pages/App.css';
 
 const HeaderPhoto = ({Image, Logo}) => {
     return (<div className="Header-container">
-    <div className="Header"> <img src={Logo}/> Tartária Burger </div>
-    <img className="img-burguer" src={Image} alt="hambuguer and salse"/>
+    <div className="Header"> <img className="logo" src={Image} alt="Tartária Burguer"/> </div>
     </div>
 )};
 

@@ -7,7 +7,8 @@ import { ItensDetails } from './functions';
 function Saloon() {
  
 const [breakfast, setBreakfast] = useState([]);
-const [allDay, setAllDay] = useState([]);
+const [burgers, setBurgers] = useState([]);
+const [drinks, setDrinks] = useState([]);
 const [client, setClient] = useState("");
 const [table, setTable] = useState("");
 const [products, setProducts] = useState([]);
@@ -36,11 +37,17 @@ const amount = []
         const breakfast = result.filter((itens) =>
           itens.type.includes('breakfast')
         );
-        const allday = result.filter((itens) =>
-          itens.type.includes('all-day')
+        const burgers = result.filter((itens) =>
+          itens.sub_type.includes('hamburguer')
         );
-        setBreakfast(breakfast)
-        setAllDay(allday)
+        const drinks = result.filter((itens) =>
+          itens.sub_type.includes('drinks')
+        );
+
+        setBreakfast(breakfast);
+        setBurgers(burgers);
+        setDrinks(drinks);
+
       })
       .catch(error => console.log('error', error));
      },[])
@@ -72,8 +79,45 @@ const amount = []
     <Header />
       <div className="main">{
         <>
-       <button>Café</button>
-       <button>Lanches</button>
+      <div className="menu">
+        <div className="section-menu">
+            <p className="subtype-menu">CAFÉ DA MANHÃ</p>{
+            breakfast.map((i) => { 
+              return (
+                <div className="each-item" key={i.id} onClick={
+                () => handleItem(i)}>
+                <ItensDetails eachItem={i}/>
+                }</div>
+                )
+              })
+          }</div>
+
+          
+        <div className="section-menu">
+          <p className="subtype-menu">HAMBÚRGUERES</p>
+          {
+          burgers.map((i) => { 
+              return (
+                <div className="each-item" key={i.id} onClick={
+                  () => handleItem(i)}>
+                  <ItensDetails eachItem={i}/>
+                </div>
+                )
+              }) 
+        }</div>
+        <div className="section-menu">
+        <p className="subtype-menu">BEBIDAS</p>
+        {
+          drinks.map((i) => { 
+              return (
+                <div className="each-item" key={i.id} onClick={
+                  () => handleItem(i)}>
+                  <ItensDetails eachItem={i}/>
+                </div>
+                )
+              }) 
+        }</div>
+      </div>
 
       <div className="sum-area">
 
