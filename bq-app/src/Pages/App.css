@@ -80,6 +80,11 @@ img.logo {
   border-radius: 10px;
 }
 
+::-webkit-input-placeholder {
+  font-family: 'Rosario', sans-serif;
+  font-size: 16px;
+}
+
 .link-register a{
   font-size: 16px;
   font-weight: bolder;

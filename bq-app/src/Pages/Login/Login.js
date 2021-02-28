@@ -64,12 +64,12 @@ function Login() {
           <form>
             <div className="email-data">
               <label>EMAIL</label>
-              <input type="text" value={email} onChange={
+              <input type="text" placeholder="Insira seu email" value={email} onChange={
                 (event) => setEmail(event.target.value)}/> 
             </div>
             <div className="password-data">
               <label>SENHA</label> 
-              <input type="password" autoComplete="off" value={password} onChange={
+              <input type="password" placeholder="Insira sua senha" autoComplete="off" value={password} onChange={
                 (event) => setPassword(event.target.value)}/> 
             </div>
              <button className="login-buttom" type="submit" onClick={
