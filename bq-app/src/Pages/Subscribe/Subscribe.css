@@ -1,12 +1,13 @@
 .subscribe-area {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../../img/Map_Tartaria.jpg");
+  background-size: cover;
   }
   
   .register-box {
     width: 100%;
     padding: 50px;
-    background-color: rgb(226, 139, 8);
   }
   

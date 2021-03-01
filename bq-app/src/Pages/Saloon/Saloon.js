@@ -17,23 +17,23 @@ const [products, setProducts] = useState([]);
 
 const orderListId = []
 const value = []
-const amount = []
 
   useEffect(() => {
     GetProducts(setBreakfast, setBurgers, setDrinks)
-  },[])
-
-    
-     const handleItem = (product) => {
-      product.qtd = 1
+  },[]);
+ 
+    const handleItem = (product) => {
       setProducts([...products, product]);
-    }
+    };
 
     const handleConfirm = (event) => {
       event.preventDefault();
-      SendOrder(client, table, orderListId, amount)
-    }
-
+      console.log("table", table, "client", client)
+      console.log("produtos clicados",products)
+      console.log("Array de id",orderListId)
+      SendOrder(client, table, orderListId)
+    };
+    
   return (
    <div className="App">
     <Header />
@@ -104,13 +104,14 @@ const amount = []
               <div className="each-item-choose" key={index}>
                  <p>{i.name} - R${i.price}</p>  
 
-                 <Button Class={"increment-btn"}
+                 {/* <Button Class={"increment-btn"}
                    Text={" + "}
+                   Funct={(event) => increment(event, i, index)}
                   />
                     {i.qtd} 
                  <Button Class={"decrement-btn"}
                    Text={" - "}
-                  />
+                  /> */}
               </div>
             )
           })

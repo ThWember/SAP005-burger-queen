@@ -1,8 +1,9 @@
 import '../Pages/App.css';
 
-const HeaderPhoto = ({Image, Logo}) => {
+const HeaderPhoto = ({Logo, Logo2}) => {
     return (<div className="Header-container">
-    <div className="Header"> <img className="logo" src={Image} alt="Tartária Burguer"/> </div>
+    <div className="Header"> TARTÁRIA BURGER </div>
+    <img className="burger-logo" src={Logo2} alt="burger-logo"/>
     </div>
 )};
 

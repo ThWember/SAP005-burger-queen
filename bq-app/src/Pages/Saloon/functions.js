@@ -1,16 +1,16 @@
-import React from 'react';
 
 export const GetProducts = (state1, state2, state3) => {
 
-  const idUser = localStorage.getItem("token");
-  let myHeaders = new Headers();
-  myHeaders.append("Authorization", `${idUser}`);
-
- let requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
- };
+    const idUser = localStorage.getItem("token");
+    
+    let requestOptions = {
+    method: 'GET',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Authorization': `${idUser}`
+    },
+    redirect: 'follow'
+    };
 
    fetch("https://lab-api-bq.herokuapp.com/products", requestOptions)
      .then(response => response.json())
@@ -32,7 +32,7 @@ export const GetProducts = (state1, state2, state3) => {
      .catch(error => console.log('error', error));
 }
 
-export const SendOrder = (name, table, idItem, qtd) => {
+export const SendOrder = (name, table, idItem) => {
   const ordersApi = []
    
   let objectOrder = {"client": `${name}`,
@@ -43,11 +43,10 @@ export const SendOrder = (name, table, idItem, qtd) => {
     for (let i = 0; i < idItem.length; i++){
        objectOrder.products.push({
         "id": idItem[i],
-        "qtd": qtd[i]
+        "qtd": 1
       },)
     }
 
-    console.log(objectOrder.products[0])
     ordersApi.push(objectOrder)
       
     localStorage.setItem("OrderApi", JSON.stringify(ordersApi));
@@ -55,6 +54,7 @@ export const SendOrder = (name, table, idItem, qtd) => {
     const idUser = localStorage.getItem("token");
     const order = localStorage.getItem("OrderApi").toString()
     const requestOrder = order.slice(1, -1)
+    console.log("Objeto requsição", requestOrder)
 
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `${idUser}`);
@@ -66,7 +66,7 @@ export const SendOrder = (name, table, idItem, qtd) => {
     method: 'POST',
     headers: myHeaders,
     body: raw,
-    redirect: 'follow'
+    redirect: 'follow',
     };
 
     fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
