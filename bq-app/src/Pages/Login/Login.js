@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import HeaderPhoto from '../../Components/HeaderPhoto';
 import '../App.css';
-import burguer from '../../img/burguer.jpg';
 import helmet from '../../img/helmet.png';
+import burger from '../../img/burger-logo.png';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() { 
@@ -40,7 +40,7 @@ function Login() {
      .then(result => { console.log(result)
         const token = result.token
         localStorage.setItem('token', token)
-        if(result.role === "garçom" || result.role === "Salão") {
+        if(result.role === "salão" || result.role === "Salão") {
           goSaloon();
         }
         else if(result.role === "cozinha" || result.role === "Cozinha"){
@@ -59,7 +59,7 @@ function Login() {
 
    return (
     <div className="login-area"> 
-      <HeaderPhoto Image={burguer} Logo={helmet}/>   
+      <HeaderPhoto Logo2={burger}/>  
       <div className="input-box">
         <div className="login-data">
           <form>
