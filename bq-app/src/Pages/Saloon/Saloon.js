@@ -1,5 +1,5 @@
 import './Saloon.css';
-import { SendOrder, GetProducts } from './functions';
+import { SendOrder, GetProducts, Logout } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -24,7 +24,7 @@ const value = []
  
   const handleItem = (product) => {
     product.qtd = 1
-    
+
     if(products.length === 0){
       setProducts([...products, product]);
       console.log("Primeiro item da lista")
@@ -53,6 +53,10 @@ const value = []
       console.log("Array de id",orderListId)
       SendOrder(client, table, orderListId)
     };
+
+    const handleLogout = (event) =>{
+      Logout(event)
+    }
     
   return (
    <div className="App">
@@ -100,6 +104,10 @@ const value = []
       </div>
 
       <div className="sum-area">
+      <Button Class={"logout-button"} 
+            Text={"SAIR"} 
+            Funct={(event) => handleLogout(event)}
+          />
          <div className="table-info">
             <input type="text" value={client} onChange={
                 (event) => setClient(event.target.value)}

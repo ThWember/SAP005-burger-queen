@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 
 export const GetProducts = (state1, state2, state3) => {
 
@@ -77,4 +78,11 @@ export const SendOrder = (name, table, idItem) => {
      .catch(error => console.log('error', error));
 
      
+  }
+
+  export const Logout = (event) => {
+    event.preventDefault();
+    const history = useHistory();
+    localStorage.clear();
+    history.push('/');
   }

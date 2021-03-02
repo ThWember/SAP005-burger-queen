@@ -1,0 +1,9 @@
+.orders-pending {
+    margin: 2rem;
+}
+
+.orders-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
