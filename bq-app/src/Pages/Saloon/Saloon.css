@@ -103,12 +103,22 @@
     width: 40px;
   }
 
+  .logout-button {
+    margin: 50px;
+    background-color: rgb(82, 67, 67);
+    border-radius: 10px;
+    border: none;
+    color: white;
+    width: 5rem;
+    font-weight: bolder;
+    height: 1.7rem;
+  }
 
-  @keyframes load-logo {
+  /* @keyframes load-logo {
     from {
       transform: rotate(0deg);
     }
     to {
       transform: rotate(360deg);
     }
-  }
+  } */
