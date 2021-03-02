@@ -6,7 +6,7 @@
   .menu {
     display: flex;
     flex-wrap: wrap;
-    width: 60%;
+    width: 65%;
   }
   
   .section-menu {
@@ -19,6 +19,7 @@
     padding: 3rem 3rem 1rem;
     font-size: 2rem;
     text-align: center;
+    font-family: 'Pirata One', cursive;
   }
   
   .each-item {

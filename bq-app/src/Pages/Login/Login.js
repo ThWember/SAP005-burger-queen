@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import HeaderPhoto from '../../Components/HeaderPhoto';
 import '../App.css';
-import helmet from '../../img/helmet.png';
 import burger from '../../img/burger-logo.png';
 import { useHistory, Link } from 'react-router-dom';
 

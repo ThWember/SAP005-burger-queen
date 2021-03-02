@@ -22,8 +22,28 @@ const value = []
     GetProducts(setBreakfast, setBurgers, setDrinks)
   },[]);
  
-    const handleItem = (product) => {
+  const handleItem = (product) => {
+    product.qtd = 1
+    
+    if(products.length === 0){
       setProducts([...products, product]);
+      console.log("Primeiro item da lista")
+    }
+    else if(products.length > 0){
+        for(let finder = 0; finder < products.length; finder ++){
+
+            if(product.id === products[finder].id){
+              products[finder].qtd +=1
+              console.log("If- Mais de um ", products[finder].qtd)
+              console.log("todos os itens", products)
+            }    
+        }
+       
+       if (product.qtd < 2 )
+
+        setProducts([...products, product]);
+        console.log("Else - Produto novo na lista")
+    }
     };
 
     const handleConfirm = (event) => {
@@ -104,14 +124,6 @@ const value = []
               <div className="each-item-choose" key={index}>
                  <p>{i.name} - R${i.price}</p>  
 
-                 {/* <Button Class={"increment-btn"}
-                   Text={" + "}
-                   Funct={(event) => increment(event, i, index)}
-                  />
-                    {i.qtd} 
-                 <Button Class={"decrement-btn"}
-                   Text={" - "}
-                  /> */}
               </div>
             )
           })

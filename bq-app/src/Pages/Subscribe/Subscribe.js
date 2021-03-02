@@ -8,7 +8,6 @@ import { useHistory } from 'react-router-dom';
     const [newEmail, setNewEmail] = useState('');
     const [newPassword, setNewPassord] = useState('');
     const [role, setRole] = useState('');
-    const [restaurant, setRestaurant] = useState('');
     const [name, setName] = useState('');
    
     const history = useHistory();
@@ -16,7 +15,7 @@ import { useHistory } from 'react-router-dom';
       history.push('/')
     }
    
-  const subscribe = (newEmail, newPassword, role, restaurant, name) => {
+  const subscribe = (newEmail, newPassword, role, name) => {
    
    let myHeaders = new Headers();
    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
@@ -25,7 +24,7 @@ import { useHistory } from 'react-router-dom';
    urlencoded.append("email", `${newEmail}`);
    urlencoded.append("password", `${newPassword}`);
    urlencoded.append("role", `${role}`);
-   urlencoded.append("restaurant", `${restaurant}`);
+   urlencoded.append("restaurant", "Tartaria Burger");
    urlencoded.append("name", `${name}`);
    
    var requestOptions = {
@@ -45,7 +44,7 @@ import { useHistory } from 'react-router-dom';
    
     const handleNewSubmit = (event) => {
      event.preventDefault();
-     subscribe(newEmail, newPassword, role, restaurant, name)
+     subscribe(newEmail, newPassword, role, name)
    }
    
    return (
@@ -59,8 +58,6 @@ import { useHistory } from 'react-router-dom';
             <input type="password" autoComplete="off" value={newPassword} onChange={(event) => setNewPassord(event.target.value)}/>
             <label>Área</label>
             <input type="text" placeholder="Cozinha ou Salão" value={role} onChange={(event) => setRole(event.target.value)}/>
-            <label>Restaurante</label>
-            <input type="text"  value={restaurant} onChange={(event) => setRestaurant(event.target.value)}/> 
             <label>Nome</label>
             <input type="text" value={name} onChange={(event) => setName(event.target.value)}/>          
             <button type="submit" onClick={(event) => handleNewSubmit(event)}>Enviar</button>
