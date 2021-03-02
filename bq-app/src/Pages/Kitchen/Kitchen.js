@@ -41,7 +41,7 @@ function Kitchen(){
       <p>Mesa {i.table}</p>
       <p>Cliente {i.client_name}</p>
       <p>Data/hora {i.createdAt}</p>
-      {/* <p>Produtos {i.Products}</p> */}
+      <p>Produtos {i.Products}</p> 
     </div>
   )
 }) 
