@@ -1,5 +1,5 @@
 
-const requestKitchen = (state) => {
+export const requestKitchen = (state) => {
     const idUser = localStorage.getItem("token");
     let requestOptions = {
       method: 'GET',
@@ -18,3 +18,4 @@ const requestKitchen = (state) => {
     })
     .catch(error => console.log('error', error));
 }
+
