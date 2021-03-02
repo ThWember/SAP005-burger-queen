@@ -1,5 +1,5 @@
 
-export const requestKitchen = (state) => {
+export const KitchenRequest = (state) => {
     const idUser = localStorage.getItem("token");
     let requestOptions = {
       method: 'GET',

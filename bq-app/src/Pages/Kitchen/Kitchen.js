@@ -1,6 +1,6 @@
 import './Kitchen.css';
 import React, { useState, useEffect } from 'react';
-import { requestKitchen } from './functions';
+import { KitchenRequest } from './functions';
 import { OrdersDetails } from '../../Components/Itens'
 import Header from '../../Components/Header';
 
@@ -9,7 +9,7 @@ function Kitchen(){
   const [orders, setOrders] = useState([]);
   
   useEffect(() => {
-     requestKitchen(setOrders)
+    KitchenRequest(setOrders)
   },[]);
 
 
