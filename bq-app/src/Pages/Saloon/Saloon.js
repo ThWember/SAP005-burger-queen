@@ -3,6 +3,7 @@ import { SendOrder, GetProducts, Logout } from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
+import shield from '../../Images/shield.png';
 import { ItensDetails } from '../../Components/Itens';
 
 
@@ -22,28 +23,28 @@ const value = []
     GetProducts(setBreakfast, setBurgers, setDrinks)
   },[]);
  
-  const handleItem = (product) => {
-    product.qtd = 1
+  const handleItem = (clickedItem) => {
+    clickedItem.qtd = 1
 
     if(products.length === 0){
-      setProducts([...products, product]);
+      setProducts([...products, clickedItem]);
       console.log("Primeiro item da lista")
     }
     else if(products.length > 0){
         for(let finder = 0; finder < products.length; finder ++){
 
-            if(product.id === products[finder].id){
-              products[finder].qtd +=1
-              console.log("If- Mais de um ", products[finder].qtd)
-              console.log("todos os itens", products)
+            if(clickedItem.id === products[finder].id){
+              const increment = products[finder].qtd +=1
+              const total = products[finder].price += products[finder].price
+              setProducts([...products, increment])
+              setProducts([...products, total])
+              console.log(products)
             }    
         }
-       
-       if (product.qtd < 2 )
-
-        setProducts([...products, product]);
-        console.log("Else - Produto novo na lista")
-    }
+      if (clickedItem.qtd === 1 ){
+        setProducts([...products, clickedItem]);
+        console.log("Else - Produto novo na lista")}
+      }
     };
 
     const handleConfirm = (event) => {
@@ -68,10 +69,13 @@ const value = []
             <p className="subtype-menu">CAFÉ DA MANHÃ</p>{
             breakfast.map((i) => { 
               return (
-                <div className="each-item" key={i.id} onClick={
+              <div className="each-section" key={i.id} onClick={
                 () => handleItem(i)}>
-                <ItensDetails eachItem={i}/>
-                </div>
+                <img className="img-shield" alt="shield" src={shield}/>
+                <section className="each-item">
+                <ItensDetails eachItem={i} />
+                </section>
+              </div>
                 )
               })
           }</div>
@@ -81,10 +85,13 @@ const value = []
           {
           burgers.map((i) => { 
               return (
-                <div className="each-item" key={i.id} onClick={
-                  () => handleItem(i)}>
+              <div className="each-section" key={i.id} onClick={
+                () => handleItem(i)}>
+                <img className="img-shield" alt="shield" src={shield}/>
+                <section className="each-item">
                   <ItensDetails eachItem={i}/>
-                </div>
+                </section>
+              </div>
                 )
               }) 
         }</div>
@@ -94,10 +101,13 @@ const value = []
         {
           drinks.map((i) => { 
               return (
-                <div className="each-item" key={i.id} onClick={
-                  () => handleItem(i)}>
+              <div className="each-section" key={i.id} onClick={
+                () => handleItem(i)}>
+                <img className="img-shield" alt="shield" src={shield}/>
+                <section className="each-item">
                   <ItensDetails eachItem={i}/>
-                </div>
+                </section>
+              </div>
                 )
               }) 
         }</div>
@@ -121,12 +131,13 @@ const value = []
 
            products.length !== 0 &&
            products.map((i, index) => {
-
+            if( i.name !== undefined && i.price !== undefined){
             orderListId.push(i.id)
             value.push(i.price)
             
             const total = value.reduce((sum, num) => sum + num, 0)                             
             localStorage.setItem("total", total)
+          }
 
             return (
               <div className="each-item-choose" key={index}>

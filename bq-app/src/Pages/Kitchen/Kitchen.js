@@ -12,7 +12,6 @@ function Kitchen(){
     KitchenRequest(setOrders)
   },[]);
 
-
   const GetOrders = orders.map((i) => {
     return(
     <OrdersDetails eachItem={i}/>
