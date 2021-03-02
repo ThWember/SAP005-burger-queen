@@ -19,6 +19,16 @@ export const OrdersDetails = ({eachItem}) => {
         <p>Mesa: {eachItem.table}</p>
         <p>Cliente: {eachItem.client_name}</p>
         <p>Data: {eachItem.createdAt.replace("T", " |  Hora:").split("Z")}</p>
+        <p>Products: {
+           eachItem.Products.map((eachProduct) =>{
+            return(
+              <ul>
+                <li>Item: {eachProduct.name}
+                <p>Quantidade: {eachProduct.qtd}</p></li>
+              </ul>
+            )
+          })
+          }</p>
       </div>
     )
 }
