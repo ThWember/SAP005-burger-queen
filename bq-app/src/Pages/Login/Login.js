@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import HeaderPhoto from '../../Components/HeaderPhoto';
 import '../App.css';
-import burger from '../../img/burger-logo.png';
+import burger from '../../Images/burger-logo.png';
 import { useHistory, Link } from 'react-router-dom';
 
 function Login() { 
@@ -58,7 +58,7 @@ function Login() {
 
    return (
     <div className="login-area"> 
-      <HeaderPhoto Logo2={burger}/>  
+      <HeaderPhoto Logo={burger}/>  
       <div className="input-box">
         <div className="login-data">
           <form>

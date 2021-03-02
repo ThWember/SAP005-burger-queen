@@ -1,6 +1,5 @@
   .main {
     display: flex;
-    margin-top: 30px;
   }
   
   .menu {
@@ -22,8 +21,11 @@
     font-family: 'Pirata One', cursive;
   }
   
+  .each-section {
+    width: 50%;
+  }
   .each-item {
-    margin: 10px;
+    margin:0 10px;
     background-color: black;
     border-radius: 10px;
   
@@ -39,10 +41,16 @@
 }
 
   .img-menu {
-    width: 200px;
-    height: 200px;
+    width: 190px;
+    height: 190px;
   }
   
+  .img-shield {
+    position: relative;
+    top: 10px;
+    padding-top: 10px;
+  }
+
   .each-item-choose {
     border: 1px solid lightgray;
   }
@@ -83,25 +91,7 @@
   .confirm-button:hover {
     background-color: rgb(197, 245, 215);
   }
-  
-  .increment-btn {
-    background-color: white;
-    font-weight: bolder;
-    border: 1px solid black;
-    color: green;
-    font-size: 20px;
-    border-radius: 6px;
-    width: 40px;
-  }
-  .decrement-btn {
-    background-color: white;
-    font-weight: bolder;
-    border: 1px solid black;
-    color: rgb(248, 0, 21);
-    font-size: 20px;
-    border-radius: 6px;
-    width: 40px;
-  }
+ 
 
   .logout-button {
     margin: 50px;

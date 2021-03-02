@@ -24,7 +24,8 @@ export const OrdersDetails = ({eachItem}) => {
             return(
               <ul>
                 <li>Item: {eachProduct.name}
-                <p>Quantidade: {eachProduct.qtd}</p></li>
+                  <p>Quantidade: {eachProduct.qtd}</p>
+                </li>
               </ul>
             )
           })

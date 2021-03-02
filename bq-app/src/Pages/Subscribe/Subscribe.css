@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../../img/Map_Tartaria.jpg");
+  background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../../Images/Map_Tartaria.jpg");
   background-size: cover;
   }
   
