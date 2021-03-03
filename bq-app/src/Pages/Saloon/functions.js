@@ -33,35 +33,19 @@ export const GetProducts = (state1, state2, state3) => {
      .catch(error => console.log('error', error));
 }
 
-export const SendOrder = (name, table, idItem) => {
-  const ordersApi = []
-   
-  let objectOrder = {"client": `${name}`,
-        "table": `${table}`,
-        "products": [        
-        ]}
-
-    for (let i = 0; i < idItem.length; i++){
-       objectOrder.products.push({
-        "id": idItem[i],
-        "qtd": 1
-      },)
-    }
-
-    ordersApi.push(objectOrder)
-      
-    localStorage.setItem("OrderApi", JSON.stringify(ordersApi));
-
+export const SendOrder = (object) => {
+  
     const idUser = localStorage.getItem("token");
+    localStorage.setItem("OrderApi", JSON.stringify(object));  
     const order = localStorage.getItem("OrderApi").toString()
-    const requestOrder = order.slice(1, -1)
-    console.log("Objeto requsição", requestOrder)
+   // const requestOrder = order.slice(1, -1)
+    console.log("Objeto requsição", order)
 
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `${idUser}`);
     myHeaders.append("Content-Type", "application/json");
 
-    let raw = requestOrder;
+    let raw = order;
 
     let requestOptions = {
     method: 'POST',

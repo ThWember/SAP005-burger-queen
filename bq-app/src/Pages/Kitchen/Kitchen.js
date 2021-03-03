@@ -18,14 +18,13 @@ function Kitchen(){
     )
   });
 
+  console.log("token", localStorage.getItem("token"))
+
 return(
  <div>
    <Header />
     <div className="orders-container">{
-      GetOrders.sort(function(first, last){
-        if(first.createdAt < last.createdAt)
-         return first
-      })
+      GetOrders
    }</div>
  </div>
  ) };
