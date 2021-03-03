@@ -27,6 +27,9 @@ function Saloon() {
   },[]);
  
   const handleItem = (clickedItem) => {
+    if(client === "" || table === ""){
+     alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
+    }
       setProducts([...products, clickedItem]);
   };
 
@@ -130,7 +133,8 @@ function Saloon() {
         }</div>
 
           <div className="total-box">
-             <p>TOTAL R$</p><p>{localStorage.getItem('total')}</p>
+             <p className="total-word">TOTAL - </p><p>{Intl.NumberFormat('pt-BR',
+              { style: 'currency', currency: 'BRL' }).format(localStorage.getItem('total'))}</p>
           </div>
           <Button Class={"confirm-button"} 
             Text={"Confirmar"} 

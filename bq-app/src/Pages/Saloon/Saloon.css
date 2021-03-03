@@ -52,7 +52,7 @@
   }
 
   .each-item-choose {
-    border: 1px solid lightgray;
+    border: 1px solid white;
   }
   .each-item-choose p {
     font-size: 25px;
@@ -68,10 +68,17 @@
   }
   
   .choose-itens {
-    border: solid 1px lightgray;
+    border: solid 1px white;
     margin: 20px;
+    background-color: chocolate;
+    color: white;
+    font-weight: bold;
   }
   
+  .total-word {
+    font-family: 'Pirata One', cursive;
+  }
+
   .total-box {
     display: flex;
     justify-content: center;
@@ -81,15 +88,16 @@
   }
 
   .confirm-button {
-    background-color:white;
-    border: 1px solid rgb(24, 170, 97);
+    background-color:rgb(117, 52, 9);
+    border: 1px solid;
     border-radius: 9px;
     font-size: 20px;
     padding: 6px;
+    color: white;
     transition: 1s;
   }
   .confirm-button:hover {
-    background-color: rgb(197, 245, 215);
+    background-color: rgb(133, 57, 7);
   }
  
 

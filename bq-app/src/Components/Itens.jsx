@@ -18,7 +18,7 @@ export const OrdersDetails = ({eachItem}) => {
         <p key={Math.random()}>Status: {eachItem.status}</p>
         <p key={Math.random()}>Mesa: {eachItem.table}</p>
         <p key={Math.random()}>Cliente: {eachItem.client_name}</p>
-        <p key={Math.random()}>Data: {eachItem.createdAt.replace("T", " |  Hora:").split("Z")}</p>
+        <p key={Math.random()}>Data: {eachItem.createdAt.replace("T", "| Hora: ").split("Z")}</p>
         <section key={Math.random()}>Products: {
            eachItem.Products.map((eachProduct) =>{
             return(
