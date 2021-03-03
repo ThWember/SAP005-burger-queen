@@ -37,9 +37,7 @@ export const SendOrder = (object) => {
   
     const idUser = localStorage.getItem("token");
     localStorage.setItem("OrderApi", JSON.stringify(object));  
-    const order = localStorage.getItem("OrderApi").toString()
-   // const requestOrder = order.slice(1, -1)
-    console.log("Objeto requsição", order)
+    const order = localStorage.getItem("OrderApi").toString();
 
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `${idUser}`);

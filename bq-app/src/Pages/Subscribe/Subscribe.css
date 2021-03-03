@@ -8,6 +8,13 @@
   
   .register-box {
     width: 100%;
-    padding: 50px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
   }
-  
+   .register-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }

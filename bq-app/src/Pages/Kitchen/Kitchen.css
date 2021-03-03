@@ -1,10 +1,16 @@
-.orders-pending {
-    margin: 2rem;
-}
 
 .orders-container {
     display: flex;
     justify-content: center;
     flex-flow: wrap;
     align-items: center;
+    background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../../Images/Map_Tartaria.jpg");
+    background-size: cover;
+}
+
+.orders-pending {
+    margin: 2rem;
+    padding: 1rem;
+    box-shadow: 8px 8px 8px rgba(7, 7, 7, 0.658);
+    background-image: url("../../Images/pergaminhoct.png");
 }
