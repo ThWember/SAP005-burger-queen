@@ -1,41 +1,28 @@
+import { RequestApi, RequestApiBody } from '../../Services/Request';
 
 export const KitchenRequest = (state) => {
-    const idUser = localStorage.getItem("token");
-    let requestOptions = {
-      method: 'GET',
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': `${idUser}`
-      },
-      redirect: 'follow'
-    };
+  const idUser = localStorage.getItem("token");
+  const path = "orders";
+  const methodType = "GET";
 
-  fetch("https://lab-api-bq.herokuapp.com/orders", requestOptions)
+  RequestApi(path, methodType, idUser)
     .then(response => response.json())
-    .then(result => {console.log(result)
-      
+    .then(result => {console.log(result) 
       state(result)
     })
     .catch(error => console.log('error', error));
 };
 
+
+
 export const UpdateOrder = (idOrder) => {
   const idUser = localStorage.getItem("token");
+  const path = `orders/${idOrder}`;
+  const methodType = "PUT";
+  const raw = {"status" : "Pronto"};
 
-  let raw = {"status" : "Pronto"}
-  let requestOptions = {
-     method: 'GET',
-     method: 'PUT',
-     headers: { 
-     'Content-Type': 'application/json',
-     'Authorization': `${idUser}`
-  },
-  body: JSON.stringify(raw)
- };
-
- fetch(`https://lab-api-bq.herokuapp.com/orders/${idOrder}`, requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
-
+  RequestApiBody(path, methodType, idUser, JSON.stringify(raw))
+   .then(response => response.text())
+   .then(result => console.log(result))
+   .catch(error => console.log('error', error));
 }
