@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
 import shield from '../../Images/shield.png';
+import { useHistory } from 'react-router-dom';
 import { ItensDetails } from '../../Components/Itens';
 
 
@@ -16,6 +17,7 @@ function Saloon() {
   const [table, setTable] = useState("");
   const [products, setProducts] = useState([]);
   const [done, setDone] = useState([]);
+  const history = useHistory();
 
   let objectOrder = {
     "client": `${client}`,
@@ -43,15 +45,22 @@ function Saloon() {
     SendOrder(objectOrder)
   };
 
-  const handleLogout = (event) => {
-    Logout(event)
+  const handleLogout = (event, hook) => {
+    Logout(event, hook)
   }
 
   const handleFinish = (event, idOrder) => {
     event.preventDefault();
     DeleteOrder(idOrder);
-  }
+  } 
 
+  const increment = (event, index) => {
+    event.preventDefault();
+    let chosenBox = [...products];
+    chosenBox[index].qtd++;
+    chosenBox[index].price = chosenBox[index].price * chosenBox[index].qtd;
+    setProducts(chosenBox);
+  }
 
   return (
   <div className="App">
@@ -109,9 +118,10 @@ function Saloon() {
     <div className="sum-area">
        <Button Class={"logout-button"} 
           Text={"SAIR"} 
-          Funct={(event) => handleLogout(event)}
+          Funct={(event) => handleLogout(event, history)}
           />
-         <div className="done-box"> {done !== undefined &&
+         <div className="done-box"> {
+           done !== undefined &&
            done.map((i) => 
          <Button Class={"done-button"} 
            Text={`Pedido da mesa ${i.table} pronto`} 
@@ -131,11 +141,10 @@ function Saloon() {
         <div className="choose-itens">{  
           products.length !== 0 &&
           products.map((i, index) => {
-
-           
-          const objectOrderItems= {
+          i.qtd = 1
+          let objectOrderItems= {
               "id": i.id,
-              "qtd": i.qtd = 1
+              "qtd": i.qtd
              }  
             objectOrder.products.push(objectOrderItems)
            console.log(objectOrder)
@@ -146,6 +155,11 @@ function Saloon() {
             return (
               <div className="each-item-choose" key={index}>
                  <p>{i.name} - R${i.price}</p>  
+                 <Button 
+                   Class={"sum-btn"} 
+                   Text={" + "} 
+                   Funct={(event) => increment(event, index)}
+                 />{i.qtd}
               </div>
             )
           })

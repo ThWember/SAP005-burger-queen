@@ -1,6 +1,4 @@
-import { useHistory } from 'react-router-dom';
 import { RequestApi, RequestApiBody } from '../../Services/Request';
-
 
 export const GetProducts = (state1, state2, state3) => {
 
@@ -51,11 +49,10 @@ export const SendOrder = (object) => {
     });  
 };
 
-export const Logout = (event) => {
+export const Logout = (event, hook) => {
   event.preventDefault();
-  const history = useHistory();
   localStorage.clear();
-  history.push('/');
+  hook.push('/');
 };
 
 export const Done = (state) => {
