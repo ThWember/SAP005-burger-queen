@@ -1,4 +1,4 @@
-import './Saloon.css';
+import '../App.css';
 import { SendOrder, GetProducts, Logout, DeleteOrder, Done} from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
