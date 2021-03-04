@@ -1,5 +1,5 @@
 import './Saloon.css';
-import { SendOrder, GetProducts, Logout, Done} from './functions';
+import { SendOrder, GetProducts, Logout, DeleteOrder, Done} from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -47,7 +47,12 @@ function Saloon() {
     Logout(event)
   }
 
-    
+  const handleFinish = (event, idOrder) => {
+    event.preventDefault();
+    DeleteOrder(idOrder);
+  }
+
+
   return (
   <div className="App">
     <Header />
@@ -110,9 +115,10 @@ function Saloon() {
            done.map((i) => 
          <Button Class={"done-button"} 
            Text={`Pedido da mesa ${i.table} pronto`} 
-           Funct={(event) => event.preventDefault}
+           Funct={(event) => handleFinish(event, i.id)}
          />
          )}</div>
+
          <div className="table-info">
             <input type="text" value={client} onChange={
                 (event) => setClient(event.target.value)}
