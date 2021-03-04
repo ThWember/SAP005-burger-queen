@@ -1,5 +1,5 @@
 import './Saloon.css';
-import { SendOrder, GetProducts, Logout } from './functions';
+import { SendOrder, GetProducts, Logout, Done} from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -15,6 +15,7 @@ function Saloon() {
   const [client, setClient] = useState("");
   const [table, setTable] = useState("");
   const [products, setProducts] = useState([]);
+  const [done, setDone] = useState([]);
 
   let objectOrder = {
     "client": `${client}`,
@@ -25,12 +26,16 @@ function Saloon() {
   useEffect(() => {
     GetProducts(setBreakfast, setBurgers, setDrinks)
   },[]);
+
+  useEffect(() => {
+    Done(setDone);
+  },[])
  
   const handleItem = (clickedItem) => {
     if(client === "" || table === ""){
      alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
     }
-      setProducts([...products, clickedItem]);
+     setProducts([...products, clickedItem]);
   };
 
   const handleConfirm = (event) => {
@@ -38,9 +43,10 @@ function Saloon() {
     SendOrder(objectOrder)
   };
 
-  const handleLogout = (event) =>{
+  const handleLogout = (event) => {
     Logout(event)
   }
+
     
   return (
   <div className="App">
@@ -95,11 +101,18 @@ function Saloon() {
 
     </div>
 
-      <div className="sum-area">
+    <div className="sum-area">
        <Button Class={"logout-button"} 
           Text={"SAIR"} 
           Funct={(event) => handleLogout(event)}
           />
+         <div className="done-box"> {done !== undefined &&
+           done.map((i) => 
+         <Button Class={"done-button"} 
+           Text={`Pedido da mesa ${i.table} pronto`} 
+           Funct={(event) => event.preventDefault}
+         />
+         )}</div>
          <div className="table-info">
             <input type="text" value={client} onChange={
                 (event) => setClient(event.target.value)}
