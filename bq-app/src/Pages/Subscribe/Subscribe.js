@@ -59,8 +59,8 @@ import { RequestApiUrl } from '../../Services/Request';
                 <input type="text" placeholder="Cozinha ou Salão" value={role} onChange={(event) => setRole(event.target.value)}/>
               </div>
               <div className="name-sub-data">
-                <label>RESTAURANTE</label>
-                <input type="text" placeholder="Nome do Restaurante" value={name} onChange={(event) => setName(event.target.value)}/>          
+                <label>NOME</label>
+                <input type="text" placeholder="Nome" value={name} onChange={(event) => setName(event.target.value)}/>          
               </div>
               <button className="subscribe-buttom" type="submit" onClick={
                 (event) => handleNewSubmit(event)}>CADASTRAR
