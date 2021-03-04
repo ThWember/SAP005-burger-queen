@@ -32,5 +32,3 @@ export const RequestApiUrl = (path, methodType, bodyContent) => {
     body: bodyContent
   }) 
 };
-
-
