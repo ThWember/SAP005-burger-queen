@@ -1,3 +1,4 @@
+import { Button } from '../Components/Button';
 
 export const ItensDetails = ({eachItem}) => {
     return(
@@ -11,14 +12,13 @@ export const ItensDetails = ({eachItem}) => {
     )
 };
 
-
-export const OrdersDetails = ({eachItem}) => {
+export const OrdersDetails = ({eachItem, classBtn, textBtn, orderFunction}) => {
     return(
       <div className="orders-pending" key={Math.random()}>
         <p key={Math.random()}>Status: {eachItem.status}</p>
         <p key={Math.random()}>Mesa: {eachItem.table}</p>
         <p key={Math.random()}>Cliente: {eachItem.client_name}</p>
-        <p key={Math.random()}>Data: {eachItem.createdAt.replace("T", "| Hora: ").split("Z")}</p>
+        <p key={Math.random()}>Data: {eachItem.createdAt.replace("T", " | Hora: ").split("Z")}</p>
         <section key={Math.random()}>Products: {
            eachItem.Products.map((eachProduct) =>{
             return(
@@ -30,6 +30,11 @@ export const OrdersDetails = ({eachItem}) => {
             )
           })
           }</section>
+          <Button key={Math.random()} Class={`${classBtn}`} 
+           Text={`${textBtn}`} 
+           Funct={(event) => 
+           orderFunction(event, eachItem.id)}
+          />
       </div>
     )
 }

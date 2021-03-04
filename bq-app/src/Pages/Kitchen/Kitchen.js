@@ -1,7 +1,7 @@
 import './Kitchen.css';
 import React, { useState, useEffect } from 'react';
-import { KitchenRequest } from './functions';
-import { OrdersDetails } from '../../Components/Itens'
+import { KitchenRequest, UpdateOrder, Logout } from './functions';
+import { OrdersDetails } from '../../Components/Itens';
 import Header from '../../Components/Header';
 
 function Kitchen(){
@@ -12,20 +12,35 @@ function Kitchen(){
     KitchenRequest(setOrders)
   },[]);
 
+  const handleOrderDone = (event, idOrder) => {
+    event.preventDefault();
+    UpdateOrder(idOrder);
+  }
+
   const GetOrders = orders.map((i) => {
+    const classBtnString = "order-done";
+    const textBtnString = "Alterar status";
+    
     return(
-    <OrdersDetails eachItem={i}/>
+     <OrdersDetails eachItem={i} 
+     classBtn={classBtnString} 
+     textBtn={textBtnString} 
+     orderFunction={handleOrderDone}/>
     )
   });
-
-  console.log("token", localStorage.getItem("token"))
-
+ 
 return(
  <div>
    <Header />
+   {/* <>
+    <Button Class={"logout-button"} 
+      Text={"SAIR"} 
+      Funct={(event) => Logout(event)}
+    /> */}
     <div className="orders-container">{
       GetOrders
    }</div>
+   {/* </> */}
  </div>
  ) };
 

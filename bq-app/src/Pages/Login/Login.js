@@ -3,6 +3,7 @@ import HeaderPhoto from '../../Components/HeaderPhoto';
 import '../App.css';
 import burger from '../../Images/burger-logo.png';
 import { useHistory, Link } from 'react-router-dom';
+import { RequestApiUrl } from '../../Services/Request';
 
 function Login() { 
 
@@ -11,7 +12,6 @@ function Login() {
   function goSaloon() {
     history.push('/saloon')
   }
-
   function goKitchen() {
     history.push('/kitchen')
   }
@@ -19,42 +19,35 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-    const login = (email, password) => {
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-   
-    let urlencoded = new URLSearchParams();
+  const login = (email, password) => {
+    
+    const path = "auth";
+    const methodType = "POST";
+    const urlencoded = new URLSearchParams();
     urlencoded.append("email",  `${email}`);
     urlencoded.append("password", `${password}`);
-   
-    let requestOptions = {
-       method: 'POST',
-       headers: myHeaders,
-       body: urlencoded,
-       redirect: 'follow'
-  };
-   
-   fetch("https://lab-api-bq.herokuapp.com/auth", requestOptions)
-     .then(response => response.json())
-     .then(result => { console.log(result)
+
+    RequestApiUrl(path, methodType, urlencoded)
+      .then(response => response.json())
+      .then(result => { console.log(result)
         const token = result.token
         localStorage.setItem('token', token)
-        if(result.role === "salão" || result.role === "Salão") {
-          goSaloon();
-        }
-        else if(result.role === "cozinha" || result.role === "Cozinha"){
-          goKitchen();
-        }
+          if(result.role === "salão" || result.role === "Salão") {
+            goSaloon();
+          }
+          else if(result.role === "cozinha" || result.role === "Cozinha"){
+            goKitchen();
+          }
       })
-     .catch(error => { console.log('error', error)
-        alert('Houve algum erro')
-      });
-    }
+      .catch(error => { console.log('error', error)
+          alert('Houve algum erro')
+        });
+  }
     
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      login(email, password)
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    login(email, password)
+  };
 
    return (
     <div className="login-area"> 
