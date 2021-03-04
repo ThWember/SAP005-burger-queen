@@ -25,7 +25,9 @@ export const GetProducts = (state1, state2, state3) => {
       state2(burgers);
       state3(drinks);
     })
-    .catch(error => console.log('error', error));
+    .catch(error => {console.log('error', error)
+     alert("Ops! Houve um erro... Tente novamente.")
+    });
 };
 
 
@@ -44,7 +46,9 @@ export const SendOrder = (object) => {
     .then(result => {console.log(result)
       alert("Pedido enviado a cozinha")
     })
-    .catch(error => console.log('error', error));  
+    .catch(error => {console.log('error', error)
+      alert("Ops! Houve um erro... Tente novamente.")
+    });  
 };
 
 export const Logout = (event) => {
@@ -67,5 +71,25 @@ export const Done = (state) => {
       );
       state(drinks)
     })
-    .catch(error => console.log('error', error));
+    .catch(error => { console.log('error', error)  
+     alert("Ops! Houve um erro... Tente novamente.")
+    });
 };
+
+export const DeleteOrder = (idOrder) => {
+
+  const idUser = localStorage.getItem("token");
+  const path = `orders/${idOrder}`;
+  const methodType = "DELETE";
+
+ RequestApi(path, methodType, idUser)
+  .then(response => response.text())
+  .then(result => {console.log(result)
+    alert("Pedido finalizado e entregue!");
+    
+  })
+  .catch(error => {console.log('error', error)
+    alert("Ops! Houve um erro... Tente novamente.")
+  });
+  
+}
