@@ -1,4 +1,4 @@
-![logo](https://user-images.githubusercontent.com/71895567/110145263-01a55900-7db8-11eb-8a97-581572a97772.png)
+
 
 ## Índice
 
