@@ -1,4 +1,4 @@
-import './Kitchen.css';
+import '../App.css';
 import React, { useState, useEffect } from 'react';
 import { KitchenRequest, UpdateOrder, Logout } from './functions';
 import { OrdersDetails } from '../../Components/Itens';

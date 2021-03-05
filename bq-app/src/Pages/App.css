@@ -142,7 +142,7 @@
   background-color: #2c3535;
   border: 10px solid transparent;
   border-image-source: url("../Images/shield.png");
-  border-image-outset: 5px;
+  border-image-outset: px;
   border-image-repeat: repeat;
   border-top: none;
   border-radius: 0 0 10px 10px;
@@ -247,6 +247,22 @@
   0% { background-color: #e4d023; -webkit-box-shadow: 0 0 3px #35b084; }
   50% { background-color: rgb(219, 88, 12); -webkit-box-shadow: 0 0 3px #8BC34A; }
   100% { background-color: #ff0000; -webkit-box-shadow: 0 0 3px #35b084; }
+}
+
+.orders-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  align-items: center;
+  background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../Images/Map_Tartaria.jpg");
+  background-size: cover;
+}
+
+.orders-pending {
+  margin: 2rem;
+  padding: 1rem;
+  box-shadow: 8px 8px 8px rgba(7, 7, 7, 0.658);
+  background-image: url("../Images/pergaminhoct.png");
 }
 
 /* @media only screen and (min-width: 900px){
