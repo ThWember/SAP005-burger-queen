@@ -69,7 +69,7 @@ function Saloon() {
       <>
        <div className="menu">
          <div className="section-menu">
-           <p className="subtype-menu">CAFÉ DA MANHÃ</p>{
+          <p className="subtype-menu">CAFÉ DA MANHÃ</p>{
             breakfast.map((i) => { 
              return (
                 <div className="each-section" key={i.id} onClick={
