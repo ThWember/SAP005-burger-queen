@@ -1,12 +1,16 @@
 import '../App.css';
 import React, { useState, useEffect } from 'react';
-import { KitchenRequest, UpdateOrder, Logout } from './functions';
+import { KitchenRequest, UpdateOrder } from './functions';
 import { OrdersDetails } from '../../Components/Itens';
 import Header from '../../Components/Header';
+import { Button } from '../../Components/Button';
+import { Logout } from '../Saloon/functions';
+import { useHistory } from 'react-router-dom';
 
 function Kitchen(){
 
   const [orders, setOrders] = useState([]);
+  const history = useHistory();
   
   useEffect(() => {
     KitchenRequest(setOrders)
@@ -30,18 +34,18 @@ function Kitchen(){
   });
  
 return(
- <div>
+ <div className="kitchen-area">
    <Header />
-   {/* <>
+   <>
     <Button Class={"logout-button"} 
       Text={"SAIR"} 
-      Funct={(event) => Logout(event)}
-    /> */}
+      Funct={(event) => Logout(event, history)}
+    /> 
     <div className="orders-container">{
       GetOrders
    }</div>
-   {/* </> */}
+   </>
  </div>
  ) };
-
+ 
 export default Kitchen;
