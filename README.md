@@ -83,3 +83,4 @@ A aplicação foi pensada para se adequar bem a uma tela de Tablet, mas é total
 
 
 ## Deploy
+Visite nossa aplicação clicando [aqui](https://hamburguer-da-tartaria.vercel.app/).
