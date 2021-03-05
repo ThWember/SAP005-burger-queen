@@ -1,5 +1,6 @@
 import '../App.css';
 import { SendOrder, GetProducts, Logout, DeleteOrder, Done} from './functions';
+
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -54,13 +55,6 @@ function Saloon() {
     DeleteOrder(idOrder);
   } 
 
-  const increment = (event, index) => {
-    event.preventDefault();
-    let chosenBox = [...products];
-    chosenBox[index].qtd++;
-    chosenBox[index].price = chosenBox[index].price * chosenBox[index].qtd;
-    setProducts(chosenBox);
-  }
 
   return (
   <div className="App">
@@ -155,11 +149,6 @@ function Saloon() {
             return (
               <div className="each-item-choose" key={index}>
                  <p>{i.name} - R${i.price}</p>  
-                 <Button 
-                   Class={"sum-btn"} 
-                   Text={" + "} 
-                   Funct={(event) => increment(event, index)}
-                 />{i.qtd}
               </div>
             )
           })
