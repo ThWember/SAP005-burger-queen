@@ -65,7 +65,7 @@ Inicialmente definimos o protótipo de baixa fidelidade, onde escolhemos a dispo
 ![prototipo](https://user-images.githubusercontent.com/71895567/110163902-6d46f080-7dcf-11eb-814f-2c134ec256bf.png)
 
 A hamburgueria é temática, sua loja tem um visual medieval e a região dos nômades criadores da primeira técnica da história para compactar carne moída(que hoje conhecemos como hambúrguer), dá nome ao estabelecimento.
-Respeitando a temática, decidimos abusar dos elementos medievais, casados á uma paleta de cores com tons de laranja, pois é uma cor muito utilizada em Brands relacionadas a alimentação, pois estimula a ação e o apetite.
+Respeitando a temática, decidimos abusar dos elementos medievais, casados á uma paleta de cores com tons de laranja, cor muito utilizada em Brands relacionadas a alimentação, pois estimula a ação e o apetite.
 O mapa que da vida ao layout, é o mapa da antiga região da Tartária.
 <img width="714" alt="paleta-de-cores" src="https://user-images.githubusercontent.com/71895567/110163931-72a43b00-7dcf-11eb-8d69-ac59c2d4a237.png">
 
