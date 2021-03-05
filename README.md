@@ -3,14 +3,7 @@
 ## Índice
 
 - [1. Sobre](#1-Sobre)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker Edition](#6-hacker-edition)
-- [7. Dicas e leituras complementares](#7-dicas-e-leituras-complementares)
-- [8. Checklist](#8-checklist)
+- [2. Desenvolvimento](#2-Desenvolvimento)
 
 ---
 
