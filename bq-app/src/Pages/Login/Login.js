@@ -40,7 +40,7 @@ function Login() {
           }
       })
       .catch(error => { console.log('error', error)
-          alert('Houve algum erro')
+          alert('Houve algum erro, tente novamente', error)
         });
   }
     

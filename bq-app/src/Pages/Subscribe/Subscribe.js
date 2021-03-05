@@ -32,7 +32,9 @@ import { RequestApiUrl } from '../../Services/Request';
     .then(result => {console.log(result)
       goLogin()
     })
-    .catch(error => console.log('error', error));
+    .catch(error => {console.log('error', error)
+      alert('Ops, houve algum erro... Tente novamente.', error)
+    });
   };
    
     const handleNewSubmit = (event) => {
