@@ -129,6 +129,7 @@
 .section-menu {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .subtype-menu {
@@ -274,6 +275,8 @@
   padding: 1rem;
   box-shadow: 8px 8px 8px rgba(7, 7, 7, 0.658);
   background-image: url("../Images/pergaminhoct.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 300px;
 }
 
@@ -291,10 +294,33 @@
   transition: 1s;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 300px) {
   .img-menu {
-    width: 200px;
-      height: 200px;
+    width: 98%;
+    height: 60%;
+  }
+  .each-item {
+    height: 40%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .each-item {
+    height: auto;
+  }
+  .img-menu {
+    width: 170px;
+    height: 170px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .each-section {
+    width: 40%;
+  }
+  .img-menu {
+    width: 180px;
+    height: 180px;
   }
   .img-shield {
     width: 94%;
@@ -305,12 +331,13 @@
 } 
 
 @media only screen and (min-width: 1000px){
-  .img-menu {
-    width: 300px;
-      height: 300px;
-  }
+  
   .img-shield {
     width: 96%;
+  }
+  .img-menu {
+    width: 200px;
+    height: 200px;
   }
   .each-item {
     font-size: 25px;
