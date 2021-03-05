@@ -1,6 +1,5 @@
 import '../App.css';
 import { SendOrder, GetProducts, Logout, DeleteOrder, Done} from './functions';
-
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -45,10 +44,6 @@ function Saloon() {
     event.preventDefault();
     SendOrder(objectOrder)
   };
-
-  const handleLogout = (event, hook) => {
-    Logout(event, hook)
-  }
 
   const handleFinish = (event, idOrder) => {
     event.preventDefault();
@@ -112,7 +107,7 @@ function Saloon() {
     <div className="sum-area">
        <Button Class={"logout-button"} 
           Text={"SAIR"} 
-          Funct={(event) => handleLogout(event, history)}
+          Funct={(event) => Logout(event, history)}
           />
          <div className="done-box"> {
            done !== undefined &&
