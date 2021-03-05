@@ -1,10 +1,10 @@
 import { RequestApi, RequestApiBody } from '../../Services/Request';
 
 export const GetProducts = (state1, state2, state3) => {
-
-  const idUser = localStorage.getItem("token");
+  
   const path = "products";
   const methodType = "GET";
+  const idUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbmRvQGhvdG1haWwuY29tIiwiaWQiOjExLCJpYXQiOjE2MTQ5MTU0MDAsImV4cCI6MTY0NjQ3MzAwMH0.LGhyK18HoyJd1TKFNz5ulxENctrc8OegcCEPOCKjMv4"
 
   RequestApi(path, methodType, idUser) 
     .then(response => response.json())
@@ -32,7 +32,7 @@ export const GetProducts = (state1, state2, state3) => {
 
 export const SendOrder = (object) => {
   
-  const idUser = localStorage.getItem("token");
+  const idUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbmRvQGhvdG1haWwuY29tIiwiaWQiOjExLCJpYXQiOjE2MTQ5MTU0MDAsImV4cCI6MTY0NjQ3MzAwMH0.LGhyK18HoyJd1TKFNz5ulxENctrc8OegcCEPOCKjMv4"
   localStorage.setItem("OrderApi", JSON.stringify(object));  
   const order = localStorage.getItem("OrderApi").toString();
   const raw = order;
@@ -56,7 +56,7 @@ export const Logout = (event, hook) => {
 };
 
 export const Done = (state) => {
-  const idUser = localStorage.getItem("token");
+  const idUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbmRvQGhvdG1haWwuY29tIiwiaWQiOjExLCJpYXQiOjE2MTQ5MTU0MDAsImV4cCI6MTY0NjQ3MzAwMH0.LGhyK18HoyJd1TKFNz5ulxENctrc8OegcCEPOCKjMv4"
   const path = "orders";
   const methodType = "GET";
 
@@ -75,7 +75,7 @@ export const Done = (state) => {
 
 export const DeleteOrder = (idOrder) => {
 
-  const idUser = localStorage.getItem("token");
+  const idUser = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RhbmRvQGhvdG1haWwuY29tIiwiaWQiOjExLCJpYXQiOjE2MTQ5MTU0MDAsImV4cCI6MTY0NjQ3MzAwMH0.LGhyK18HoyJd1TKFNz5ulxENctrc8OegcCEPOCKjMv4"
   const path = `orders/${idOrder}`;
   const methodType = "DELETE";
 

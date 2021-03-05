@@ -13,7 +13,11 @@
 }
 
 .Header-container {
-  width: 96vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .Header {
@@ -27,11 +31,11 @@
 }
 
 .burger-logo {
-  width: 100px;
-  margin: 0 45% 5% 45%;
+  height: 140px;
+  margin: 0 45% 0 45%;
 }
 
-.login-area, .subscribe-area {
+.login-area, .subscribe-area, .kitchen-area {
   background-image: linear-gradient(#f28e0ca4,#f2ad0ca4), url("../Images/Map_Tartaria.jpg");
   background-size: cover;
   width: 100%;
@@ -51,7 +55,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 90px;
 }
 
 .email-data, .password-data, .email-sub-data, .password-sub-data, .type-sub-data, .name-sub-data {
@@ -59,7 +62,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
 }
 
 .input-box form, .register-box form  {
@@ -68,13 +70,13 @@
   justify-content: center;
   align-items: center;
   width: 40vw;
-  margin: 20px 20px 0;
+  margin: 0 20px 0 0;
 }
 
-.input-box form label .register-box form label{
+.input-box form label, .register-box form label{
   font-family: 'Rosario', sans-serif;
   font-size: 16px;
-  margin: 8px;
+  margin: 2px;
   font-weight: bolder;
   color: #000000;
 }
@@ -95,7 +97,11 @@
   font-size: 16px;
   font-weight: bolder;
   text-decoration: none;
-  color:#2c3535
+  color:#2c3535;
+}
+
+.link-register {
+  padding-top: 30px;
 }
 
 .login-buttom, .subscribe-buttom {
@@ -106,7 +112,7 @@
   color: #fff;
   border-radius: 10px;
   font-size: 16px;
-  margin: 30px 0;
+  margin: 5px 30px 0;
   box-shadow: 5px 5px 5px #000;
 }
 
@@ -139,7 +145,7 @@
 
 .each-item {
   margin:0 10px;
-  background-color: #2c3535;
+  background-color: #202727;
   border: 10px solid transparent;
   border-image-source: url("../Images/shield.png");
   border-image-outset: 5px;
@@ -147,7 +153,7 @@
   border-top: none;
   border-radius: 0 0 10px 10px;
   color: white;
-  font-size: 16px;
+  font-size: 19px;
   padding: 15px 0;
 }
 
@@ -166,7 +172,7 @@
   position: relative;
   top: 10px;
   padding-top: 10px;
-  width: 93%;
+  width: 92.2%;
   margin-bottom: 5px;
 }
 
@@ -249,8 +255,43 @@
   100% { background-color: #ff0000; -webkit-box-shadow: 0 0 3px #35b084; }
 }
 
-/* @media only screen and (min-width: 900px){
-  .img-burguer {
-      height: 430px;
+.orders-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  align-items: center;
+  background-size: cover;
+}
+
+.orders-pending {
+  margin: 1.2rem;
+  padding: 1rem;
+  box-shadow: 8px 8px 8px rgba(7, 7, 7, 0.658);
+  background-image: url("../Images/pergaminhoct.png");
+}
+
+@media only screen and (min-width: 900px){
+  .img-menu {
+    width: 200px;
+      height: 200px;
   }
-} */
+  .img-shield {
+    width: 94%;
+  }
+  .each-item {
+    font-size: 22px;
+  }
+} 
+
+@media only screen and (min-width: 1000px){
+  .img-menu {
+    width: 300px;
+      height: 300px;
+  }
+  .img-shield {
+    width: 96%;
+  }
+  .each-item {
+    font-size: 25px;
+  }
+}
