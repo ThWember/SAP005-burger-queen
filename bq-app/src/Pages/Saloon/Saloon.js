@@ -64,6 +64,20 @@ function Saloon() {
     } 
   };
 
+  const decreaseItem = (event, clickedItem) => {
+   event.preventDefault();
+   
+    const chosenProducts = [...products]
+    const idItem = clickedItem.id
+    const searchItem = chosenProducts.filter((item) => item.id === idItem)
+    const index = chosenProducts.indexOf(searchItem[0])
+    const price = chosenProducts[index].price
+
+    chosenProducts[index].qtd--
+    chosenProducts[index].totalPrice -= price 
+    setProducts([...products])
+  }
+
   const handleConfirm = (event) => {
     event.preventDefault();
     SendOrder(objectOrder)
@@ -165,10 +179,20 @@ function Saloon() {
             localStorage.setItem("total", total)
       
             return (
-              <div className="each-item-choose" key={index}>
-                 <p>{i.name} -{Intl.NumberFormat('pt-BR',
-              { style: 'currency', currency: 'BRL' }).format(i.price)} - [{i.qtd}]</p>  
-              </div>
+            <div className="each-item-choose" key={index}>
+               <Button Class={"qtd-button"} 
+                  Text={" + "} 
+                  Funct={(event) => {event.preventDefault()
+                  handleItem(i)
+                  }}
+                />
+               <p>{i.name} -{Intl.NumberFormat('pt-BR',
+              { style: 'currency', currency: 'BRL' }).format(i.price)} - [{i.qtd}]</p> 
+               <Button Class={"qtd-button"} 
+                  Text={" - "} 
+                  Funct={(event) => decreaseItem(event, i)}
+                />
+            </div>
             )
           })
         }</div>

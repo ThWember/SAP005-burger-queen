@@ -179,12 +179,24 @@
 
 .each-item-choose {
   border: 1px solid white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .each-item-choose p {
   font-size: 25px;
   padding: 10px;
   font-size: 16px;
+}
+
+.qtd-button {
+  width: 12%;
+  border-radius: 25%;
+  border: none;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background-color: rgb(160, 77, 17);
 }
 
 .table-info {
