@@ -87,6 +87,50 @@ export const DeleteOrder = (idOrder) => {
   })
   .catch(error => {console.log('error', error)
     alert("Ops! Houve um erro... Tente novamente.")
-  });
-  
+  }); 
 }
+
+export const handleItem = (client, table, clickedItem, setClickedItens, state) => {
+  if(client === "" || table === ""){
+   alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
+  }
+  const chosenProducts = [...setClickedItens]
+
+  if(setClickedItens.length === 0){
+    clickedItem.qtd = 1
+    clickedItem.totalPrice = clickedItem.price
+    state([...setClickedItens, clickedItem]);
+  }
+  else {
+    const idItem = clickedItem.id
+    const searchItem = chosenProducts.filter((item) => item.id === idItem)
+    const index = chosenProducts.indexOf(searchItem[0])
+
+    if(searchItem.length > 0){
+      const price = chosenProducts[index].price
+
+      chosenProducts[index].qtd++
+      chosenProducts[index].totalPrice += price 
+      state([...setClickedItens])
+    }
+    else{
+      clickedItem.qtd = 1
+      clickedItem.totalPrice = clickedItem.price
+      state([...setClickedItens, clickedItem]);
+    }
+  } 
+};
+
+export const decreaseItem = (event, clickedItem, setClickedItens, state) => {
+  event.preventDefault();
+
+   const chosenProducts = [...setClickedItens]
+   const idItem = clickedItem.id
+   const searchItem = chosenProducts.filter((item) => item.id === idItem)
+   const index = chosenProducts.indexOf(searchItem[0])
+   const price = chosenProducts[index].price
+
+   chosenProducts[index].qtd--
+   chosenProducts[index].totalPrice -= price 
+   state([...setClickedItens])
+ };

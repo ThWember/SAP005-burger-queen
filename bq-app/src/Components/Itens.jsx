@@ -5,9 +5,8 @@ export const ItensDetails = ({eachItem}) => {
       <>
         <img className="img-menu" alt="food" src={eachItem.image}/>
         <p>{eachItem.name}</p>
-        <p>R${eachItem.price}</p>
         <p>{eachItem.flavor}</p>   
-        <p>{eachItem.complement}</p>
+        <p>R${eachItem.price}</p>
       </>
     )
 };
@@ -38,4 +37,4 @@ export const OrdersDetails = ({eachItem, classBtn, textBtn, orderFunction}) => {
           />
       </div>
     )
-}
+};

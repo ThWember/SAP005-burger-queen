@@ -1,5 +1,5 @@
 import '../App.css';
-import { SendOrder, GetProducts, Logout, DeleteOrder, Done} from './functions';
+import { SendOrder, GetProducts, Logout, DeleteOrder, Done, handleItem, decreaseItem} from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -31,52 +31,7 @@ function Saloon() {
 
   useEffect(() => {
     Done(setDone);
-  },[])
- 
-  const handleItem = (clickedItem) => {
-    if(client === "" || table === ""){
-     alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
-    }
-    const chosenProducts = [...products]
-
-    if(products.length === 0){
-      clickedItem.qtd = 1
-      clickedItem.totalPrice = clickedItem.price
-      setProducts([...products, clickedItem]);
-    }
-    else {
-      const idItem = clickedItem.id
-      const searchItem = chosenProducts.filter((item) => item.id === idItem)
-      const index = chosenProducts.indexOf(searchItem[0])
-
-      if(searchItem.length > 0){
-        const price = chosenProducts[index].price
-
-        chosenProducts[index].qtd++
-        chosenProducts[index].totalPrice += price 
-        setProducts([...products])
-      }
-      else{
-        clickedItem.qtd = 1
-        clickedItem.totalPrice = clickedItem.price
-        setProducts([...products, clickedItem]);
-      }
-    } 
-  };
-
-  const decreaseItem = (event, clickedItem) => {
-   event.preventDefault();
-   
-    const chosenProducts = [...products]
-    const idItem = clickedItem.id
-    const searchItem = chosenProducts.filter((item) => item.id === idItem)
-    const index = chosenProducts.indexOf(searchItem[0])
-    const price = chosenProducts[index].price
-
-    chosenProducts[index].qtd--
-    chosenProducts[index].totalPrice -= price 
-    setProducts([...products])
-  }
+  },[]);
 
   const handleConfirm = (event) => {
     event.preventDefault();
@@ -86,7 +41,7 @@ function Saloon() {
   const handleFinish = (event, idOrder) => {
     event.preventDefault();
     DeleteOrder(idOrder);
-  } 
+  } ;
 
 
   return (
@@ -100,7 +55,7 @@ function Saloon() {
             breakfast.map((i) => { 
              return (
                 <div className="each-section" key={i.id} onClick={
-                  () => handleItem(i)}>
+                  () => handleItem(client, table, i, products, setProducts)}>
                   <img className="img-shield" alt="shield" src={shield}/>
                   <section className="each-item">
                   <ItensDetails eachItem={i} />
@@ -115,7 +70,7 @@ function Saloon() {
           burgers.map((i) => { 
             return (
               <div className="each-section" key={i.id} onClick={
-               () => handleItem(i)}>
+               () => {handleItem(client, table, i, products, setProducts)}}>
                <img className="img-shield" alt="shield" src={shield}/>
                 <section className="each-item">
                   <ItensDetails eachItem={i}/>
@@ -130,7 +85,7 @@ function Saloon() {
           drinks.map((i) => { 
             return (
              <div className="each-section" key={i.id} onClick={
-              () => handleItem(i)}>
+              () => handleItem(client, table, i, products, setProducts)}>
                <img className="img-shield" alt="shield" src={shield}/>
                  <section className="each-item">
                    <ItensDetails eachItem={i}/>
@@ -183,14 +138,14 @@ function Saloon() {
                <Button Class={"qtd-button"} 
                   Text={" + "} 
                   Funct={(event) => {event.preventDefault()
-                  handleItem(i)
+                  handleItem(client, table, i, products, setProducts)
                   }}
                 />
                <p>{i.name} -{Intl.NumberFormat('pt-BR',
               { style: 'currency', currency: 'BRL' }).format(i.price)} - [{i.qtd}]</p> 
                <Button Class={"qtd-button"} 
                   Text={" - "} 
-                  Funct={(event) => decreaseItem(event, i)}
+                  Funct={(event) => decreaseItem(event, i, products, setProducts)}
                 />
             </div>
             )
