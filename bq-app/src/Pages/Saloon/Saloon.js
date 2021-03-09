@@ -54,6 +54,7 @@ function Saloon() {
 
         chosenProducts[index].qtd++
         chosenProducts[index].totalPrice += price 
+        setProducts([...products])
       }
       else{
         clickedItem.qtd = 1
