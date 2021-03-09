@@ -26,7 +26,8 @@ function Kitchen(){
     const textBtnString = "Alterar status";
     
     return(
-     <OrdersDetails eachItem={i} 
+     <OrdersDetails key={i.id}
+     eachItem={i} 
      classBtn={classBtnString} 
      textBtn={textBtnString} 
      orderFunction={handleOrderDone}/>
