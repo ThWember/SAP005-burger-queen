@@ -331,7 +331,6 @@
 } 
 
 @media only screen and (min-width: 1000px){
-  
   .img-shield {
     width: 96%;
   }
@@ -341,5 +340,11 @@
   }
   .each-item {
     font-size: 25px;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .each-section {
+    width: 34%;
   }
 }
