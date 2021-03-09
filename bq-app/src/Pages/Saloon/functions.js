@@ -87,10 +87,13 @@ export const DeleteOrder = (idOrder) => {
   })
   .catch(error => {console.log('error', error)
     alert("Ops! Houve um erro... Tente novamente.")
-  }); 
-}
+  })
+};
+
+
 
 export const handleItem = (client, table, clickedItem, setClickedItens, state) => {
+
   if(client === "" || table === ""){
    alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
   }
@@ -121,7 +124,10 @@ export const handleItem = (client, table, clickedItem, setClickedItens, state) =
   } 
 };
 
+
+
 export const decreaseItem = (event, clickedItem, setClickedItens, state) => {
+
   event.preventDefault();
 
    const chosenProducts = [...setClickedItens]
@@ -134,3 +140,18 @@ export const decreaseItem = (event, clickedItem, setClickedItens, state) => {
    chosenProducts[index].totalPrice -= price 
    state([...setClickedItens])
  };
+
+
+export const deleteItem = (event, clickedItem, setClickedItens, state) => {
+
+  event.preventDefault();
+
+  const chosenProducts = [...setClickedItens]
+  const idItem = clickedItem.id
+  const searchItem = chosenProducts.filter((item) => item.id === idItem)
+  const index = chosenProducts.indexOf(searchItem[0])
+
+  chosenProducts.splice(chosenProducts[index], 1)
+  console.log(chosenProducts)
+  state([...chosenProducts])
+};

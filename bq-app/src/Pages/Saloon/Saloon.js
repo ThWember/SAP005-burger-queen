@@ -1,5 +1,5 @@
 import '../App.css';
-import { SendOrder, GetProducts, Logout, DeleteOrder, Done, handleItem, decreaseItem} from './functions';
+import { SendOrder, GetProducts, Logout, DeleteOrder, Done, handleItem, decreaseItem, deleteItem} from './functions';
 import React, { useState, useEffect } from 'react';
 import Header from '../../Components/Header';
 import { Button } from '../../Components/Button';
@@ -123,7 +123,7 @@ function Saloon() {
         <div className="choose-itens">{  
           products.length !== 0 &&
           products.map((i, index) => {
-          
+  
           let objectOrderItems= {
               "id": i.id,
               "qtd": i.qtd
@@ -134,26 +134,33 @@ function Saloon() {
             localStorage.setItem("total", total)
       
             return (
-            <div className="each-item-choose" key={index}>
-               <Button Class={"qtd-button"} 
-                  Text={" + "} 
-                  Funct={(event) => {event.preventDefault()
-                  handleItem(client, table, i, products, setProducts)
-                  }}
-                />
-               <p>{i.name} -{Intl.NumberFormat('pt-BR',
-              { style: 'currency', currency: 'BRL' }).format(i.price)} - [{i.qtd}]</p> 
-               <Button Class={"qtd-button"} 
-                  Text={" - "} 
-                  Funct={(event) => decreaseItem(event, i, products, setProducts)}
-                />
+            <div>
+              <div className="each-item-choose" key={index}>
+                <Button Class={"qtd-button"} 
+                    Text={" + "} 
+                    Funct={(event) => {event.preventDefault()
+                    handleItem(client, table, i, products, setProducts)
+                    }}
+                  />
+                <p>{i.name} -{Intl.NumberFormat('pt-BR',
+                { style: 'currency', currency: 'BRL' }).format(i.price)}  [ {i.qtd} ]</p> 
+                <Button Class={"qtd-button"} 
+                    Text={" - "} 
+                    Funct={(event) => decreaseItem(event, i, products, setProducts)}
+                  />
+              </div>
+               <Button key={Math.random()} 
+                 Class={"delete-button"} 
+                 Text={" x "} 
+                 Funct={(event) => deleteItem(event, i, products, setProducts)}
+               />
             </div>
             )
           })
         }</div>
 
           <div className="total-box">
-             <p className="total-word">TOTAL - </p><p>{Intl.NumberFormat('pt-BR',
+             <p className="total-word">TOTAL  </p><p>{Intl.NumberFormat('pt-BR',
               { style: 'currency', currency: 'BRL' }).format(localStorage.getItem('total'))}</p>
           </div>
           <Button Class={"confirm-button"} 
