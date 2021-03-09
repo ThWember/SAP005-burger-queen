@@ -198,6 +198,15 @@
   color: white;
   background-color: rgb(160, 77, 17);
 }
+.delete-button {
+  width: 12%;
+  border-radius: 25%;
+  border: none;
+  font-size: 25px;
+  font-weight: bold;
+  background-color: white;
+  color: rgb(160, 77, 17);
+}
 
 .table-info {
   display: flex;
