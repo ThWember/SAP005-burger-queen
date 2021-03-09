@@ -37,7 +37,30 @@ function Saloon() {
     if(client === "" || table === ""){
      alert("Primeiro pergunte o nome do cliente e preencha os campos de mesa e nome :)")
     }
-     setProducts([...products, clickedItem]);
+    const chosenProducts = [...products]
+
+    if(products.length === 0){
+      clickedItem.qtd = 1
+      clickedItem.totalPrice = clickedItem.price
+      setProducts([...products, clickedItem]);
+    }
+    else {
+      const idItem = clickedItem.id
+      const searchItem = chosenProducts.filter((item) => item.id === idItem)
+      const index = chosenProducts.indexOf(searchItem[0])
+
+      if(searchItem.length > 0){
+        const price = chosenProducts[index].price
+
+        chosenProducts[index].qtd++
+        chosenProducts[index].totalPrice += price 
+      }
+      else{
+        clickedItem.qtd = 1
+        clickedItem.totalPrice = clickedItem.price
+        setProducts([...products, clickedItem]);
+      }
+    } 
   };
 
   const handleConfirm = (event) => {
@@ -130,20 +153,20 @@ function Saloon() {
         <div className="choose-itens">{  
           products.length !== 0 &&
           products.map((i, index) => {
-          i.qtd = 1
+          
           let objectOrderItems= {
               "id": i.id,
               "qtd": i.qtd
              }  
             objectOrder.products.push(objectOrderItems)
-           console.log(objectOrder)
-            value.push(i.price)   
+            value.push(i.totalPrice)   
             const total = value.reduce((sum, num) => sum + num,0)                             
             localStorage.setItem("total", total)
       
             return (
               <div className="each-item-choose" key={index}>
-                 <p>{i.name} - R${i.price}</p>  
+                 <p>{i.name} -{Intl.NumberFormat('pt-BR',
+              { style: 'currency', currency: 'BRL' }).format(i.price)} - [{i.qtd}]</p>  
               </div>
             )
           })
