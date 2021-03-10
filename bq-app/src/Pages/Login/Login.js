@@ -47,7 +47,7 @@ function Login() {
     event.preventDefault();
     login(email, password);
   };
-
+  
   return (
     <div className="login-area">
       <HeaderPhoto Logo={burger} />
