@@ -33,7 +33,7 @@ function Kitchen(){
      orderFunction={handleOrderDone}/>
     )
   });
- 
+  
 return(
  <div className="kitchen-area">
    <Header />

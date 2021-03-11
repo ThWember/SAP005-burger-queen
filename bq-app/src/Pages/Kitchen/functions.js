@@ -7,7 +7,7 @@ export const KitchenRequest = (state) => {
 
   RequestApi(path, methodType, idUser)
     .then(response => response.json())
-    .then(result => {console.log(result) 
+    .then(result => { 
       const pendingOrder = result.filter((itens) =>
        itens.status.includes('pending')
       );
